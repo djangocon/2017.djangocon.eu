@@ -1,0 +1,20 @@
+{#{% extends "base.html" %}#}
+{% load i18n %}
+{% block content %}
+<div class="grid">
+    <h1>{% trans "Schedule" %}</h1>
+    <ul>
+    {% for item in object_list %}
+        <li>[{{ item.day }}, {{ item.start }} - {{ item.parsed_duration}}]<br />
+            {{ item.title }}
+            {% if not item.name %}
+            by {{ item.author }}:
+            <pre>{{ item.abstract }}</pre>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>{% trans "No item yet."%}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
