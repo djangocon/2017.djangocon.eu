@@ -8,13 +8,15 @@ from django.conf import settings
 from django.views.generic import CreateView
 from djmail.template_mail import MagicMailBuilder
 
-from .forms import SubmissionForm
-from .models import Submission
-
 
 class SubmissionView(CreateView):
-    form_class = SubmissionForm
-    model = Submission
+
+
+    def __init__(self, form_class, model, *args, **kwargs):
+        self.model = model
+        self.form_class = form_class
+        super(SubmissionView, self).__init__(*args, **kwargs)
+
 
     def _send_notification(self):
         if self.object:

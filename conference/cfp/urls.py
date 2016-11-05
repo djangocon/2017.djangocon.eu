@@ -5,6 +5,11 @@ from django.conf.urls import url
 
 from .views import SubmissionView
 
+from .forms import TalkSubmissionForm
+from .models import TalkSubmission
+
 urlpatterns = [
-    url(r'^', SubmissionView.as_view(), name='cfp_submission'),
+    url(r'^', SubmissionView.as_view(form_class=TalkSubmissionForm,
+                                     model=TalkSubmission),
+                                     name='cfp_talks_submission'),
 ]

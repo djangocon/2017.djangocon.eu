@@ -1,0 +1,22 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags i18n %}
+
+{% block content %}
+    <section class="section-film-strip bg-purple">
+        <div class="grid">
+            <div class="s-10 m-10 l-8 centered">
+                {% static_placeholder "Content CFP" %}
+            </div>
+            <div class="s-12 m-10 l-6 centered">
+                <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                    {% for field in form %}
+                        {% include 'includes/field.html' with bound_field=field %}
+                    {% endfor %}
+                    <button type="submit" value="" class="btn btn--primary btn--block">
+                        {% trans 'Submit' %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

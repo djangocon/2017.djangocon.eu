@@ -16,3 +16,9 @@ class CFPApp(CMSApp):
     name = 'CFP'
     _urls = ['conference.cfp.urls']
 apphook_pool.register(CFPApp)
+
+
+class WrokshopApp(CMSApp):
+    name = 'Workshops'
+    _urls = ['conference.cfp.workshop_urls']
+apphook_pool.register(WrokshopApp)
