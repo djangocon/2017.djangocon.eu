@@ -1,0 +1,35 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+.widget-text {
+    * + * {
+        margin-top: $gutter;
+    }
+
+    p + p {
+        margin-top: $gutter-half;
+    }
+
+    * + h2, * + h3, * + h4 {
+        margin-top: $gutter-double;
+    }
+
+    h3 + *, h4 + * {
+        margin-top: $gutter-half;
+    }
+
+    ul {
+        padding-left: $gutter;
+    }
+
+    li {
+        list-style: disc;
+    }
+
+    li + li {
+        margin-top: $gutter-half;
+    }
+}

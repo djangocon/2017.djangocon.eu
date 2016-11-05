@@ -1,0 +1,52 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+.site-footer {
+    background: $black;
+    text-align: center;
+    color: rgba($white, .4);
+    padding: $gutter-double 0;
+
+    &.section-film-strip {
+        &:before,
+        &:after {
+            width: 100%;
+            left: 0;
+        }
+
+        &:before {
+            top: -$gutter;
+        }
+    }
+
+    .copyright {
+        text-align: right;
+
+        @media screen and (max-width: $screen-m) {
+            text-align: center;
+        }
+    }
+
+    .footer-nav {
+        text-align: left;
+
+        @media screen and (max-width: $screen-m) {
+            text-align: center;
+        }
+
+        @media screen and (max-width: $screen-s) {
+            margin: $gutter 0;
+        }
+    }
+
+    .social-icons {
+        a {
+            @include font-size(24);
+            display: inline-block;
+            margin: 0 $gutter-half;
+        }
+    }
+}

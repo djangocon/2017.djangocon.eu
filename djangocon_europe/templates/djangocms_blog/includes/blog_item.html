@@ -1,0 +1,24 @@
+{% load i18n thumbnail cms_tags %}
+
+<article id="post-{{ post.slug }}" class="post-list-item">
+    <div class="post-list-content">
+        <header class="post-header">
+            <h3 class="post-title">
+                <a href="{{ post.get_absolute_url }}" class="post-title__link">
+                    {{ post.title }}
+                </a>
+            </h3>
+            {% block blog_meta %}
+                {% include "djangocms_blog/includes/blog_meta.html" %}
+            {% endblock %}
+        </header>
+        <div class="post-abstract">
+            {% if not TRUNCWORDS_COUNT %}
+                {% render_model post "abstract" "" "" "safe" %}
+            {% else %}
+                {% render_model post "abstract" "" "" "truncatewords_html:TRUNCWORDS_COUNT|safe"  %}
+            {% endif %}
+        </div>
+        <a href="{{ post.get_absolute_url }}" class="btn btn--small btn--primary">{% trans "read more" %} &raquo;</a>
+    </div>
+</article>

@@ -1,0 +1,43 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+////////////////////////////////////////////////////////////////////////////////
+// Typography
+////////////////////////////////////////////////////////////////////////////////
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $secondary-font;
+    font-weight: 300;
+    line-height: $line-height-headings;
+    margin-bottom: $gutter / 2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $yellow;
+}
+
+h1 {
+    @include font-size(48);
+}
+
+h2 {
+    @include font-size(42);
+}
+
+h3 {
+    @include font-size(32);
+}
+
+h4 {
+    @include font-size(28);
+}
+
+h5 {
+    @include font-size(12);
+}
+
+h6 {
+    @include font-size(12);
+}

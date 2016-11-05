@@ -1,0 +1,12 @@
+{% load i18n %}
+{{ bound_field.required }}
+<div class="form-group {% if bound_field.field.required %}form-group--required{% endif %} {% if bound_field.errors %}form-group--has-error{% endif %}">
+    <label for="{{ bound_field.id_for_label }}">
+        {{ bound_field.label }}{% if bound_field.is_required %}<abbr title="{% trans "Required field" %}">*</abbr>{% endif %}
+    </label>
+    {{ bound_field }}
+    {% if bound_field.errors %}
+        {% for error in bound_field.errors %}<span class="form-group__error">{{ error }}</span>{% endfor %}
+    {% endif %}
+    {% if bound_field.help_text %}<div class="form-group__help-text">{{ bound_field.help_text|safe }}</div>{% endif %}
+</div>

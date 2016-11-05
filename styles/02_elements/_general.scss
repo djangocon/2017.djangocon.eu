@@ -1,0 +1,135 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+html {
+    @media screen and (max-width: $screen-m) {
+        @include font-size(16);
+    }
+
+    @media screen and (max-width: $screen-s) {
+        @include font-size(14);
+    }
+}
+
+body {
+    @include font-size(22);
+    font-family: $secondary-font;
+    line-height: $line-height;
+    letter-spacing: .5px;
+    background: url("../img/bg_film.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: $grey-l-4;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 120px;
+        background-repeat: repeat-y;
+    }
+
+    &:before {
+        background: url("../img/djangocon_film_strip_right.svg");
+        right: 0;
+    }
+
+    &:after {
+        background: url("../img/djangocon_film_strip_left.svg");
+        left: 0;
+    }
+
+    @media screen and (max-width: $screen-m) {
+        &:before,
+        &:after {
+            width: 60px;
+            background-size: 60px;
+        }
+    }
+
+    @media screen and (max-width: $screen-s) {
+        &:before,
+        &:after {
+            width: 30px;
+            background-size: 30px;
+        }
+    }
+}
+
+img {
+    vertical-align: bottom;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: $yellow;
+    text-decoration: none;
+
+    &:hover {
+        color: $yellow-d-1;
+    }
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+hr {
+    width: 80px;
+    height: 2px;
+    background: $yellow;
+    border: 0;
+    margin: $gutter auto;
+    display: block;
+}
+
+p {
+    font-family: $secondary-font;
+    font-weight: 300;
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Utilities
+////////////////////////////////////////////////////////////////////////////////
+
+.align-center {
+    text-align: center;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.margin-bottom {
+    margin-bottom: $gutter;
+}
+
+.block {
+    width: 100%;
+    display: block;
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// General div
+////////////////////////////////////////////////////////////////////////////////

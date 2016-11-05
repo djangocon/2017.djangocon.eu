@@ -1,0 +1,136 @@
+<!doctype html>{% load i18n staticfiles cms_tags sekizai_tags compress meta page_meta_tags %}
+{% if not meta and request.current_page %}{% page_meta request.current_page as meta%}{% endif %}
+<html lang="{{ LANGUAGE_CODE }}" {% googleplus_html_scope meta.gplus_type %}>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title-tag %}{% block title %}{% page_attribute page_title %}{% endblock %} {% block title-prefix %} - {{ SITE.name }}{% endblock %}{% endblock %}</title>
+    {% block meta_tags %}
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        {% autoescape off %}
+        {% if meta %}
+            {% include 'djangocms_page_meta/meta.html' with meta=meta %}
+        {% else %}
+            {% if meta.description %}{% meta 'description' meta.description %}{% endif %}
+            {% if meta.keywords %}{% meta_list 'keywords' meta.keywords|join:"," %}{% endif %}
+        {% endif %}
+        {% endautoescape %}
+    {% endblock meta_tags %}
+    <!-- favicons -->
+    <link rel="shortcut icon" href="{% static 'img/favicon/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon/apple-touch-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicon/apple-touch-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicon/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicon/apple-touch-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicon/apple-touch-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-touch-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicon/apple-touch-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicon/apple-touch-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon/favicon-32x32.png' %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon/favicon-96x96.png' %}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon/android-chrome-192x192.png' %}" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="{% static 'img/favicon/smalltile.png' %}" />
+    <meta name="msapplication-square150x150logo" content="{% static 'img/favicon/mediumtile.png' %}" />
+    <meta name="msapplication-wide310x150logo" content="{% static 'img/favicon/widetile.png' %}" />
+    <meta name="msapplication-square310x310logo" content="{% static 'img/favicon/largetile.png' %}" />
+    <!-- end favicons -->
+    <!--[if IE]><link rel="shortcut icon" href="{% static 'favicon.ico' %}"><![endif]-->
+    {% render_block "css" %}
+    <!--[if lt IE 9]>
+    {% compress js %}
+    <script src="{% static 'js/libs/html5shiv.min.js' %}"></script>
+    <script src="{% static 'js/libs/respond.min.js' %}"></script>
+    {% endcompress js %}
+    <![endif]-->
+    {% block css_header %}{% endblock css_header %}
+    {% block css %}{% endblock css %}
+    {% with_data "css-all" as stylesheets %}
+        {% for css in stylesheets %}<link href="{% static css %}" media="all" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% end_with_data %}
+    {% with_data "css-screen" as stylesheets %}
+        {% for css in stylesheets %}<link href="{% static css %}" media="screen, projection" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% end_with_data %}
+    {% with_data "css-print" as stylesheets %}
+        {% for css in stylesheets %}<link href="{% static css %}" media="print" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% end_with_data %}
+    {% with_data "css-media" as stylesheets %}
+        {% for css in stylesheets %}<link href="{{ MEDIA_URL }}{{ css }}" media="screen, projection" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% end_with_data %}
+    {% with_data "css-ext" as stylesheets %}
+        {% for css in stylesheets %}<link href="{{ css }}" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% end_with_data %}
+    {% with_data "css-override" as stylesheets %}
+        {% for css in stylesheets %}<link href="{% static css %}" media="screen, projection" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% end_with_data %}
+    {% render_block "css_end" %}
+    <style media="all">
+        {% block css-inlinea %}
+        {% endblock css-inlinea %}
+    </style>
+    {% compress css inline %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    {% endcompress %}
+    {% block extrahead %}{% endblock %}
+    {% include "includes/analytics.html" %}
+</head>
+<body id="page-top" class="noscript lang-{{ LANGUAGE_CODE }} {% block body_class %}tpl-root{% endblock %}">
+{% cms_toolbar %}
+{% comment %}
+Enable when we are ready
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/57f61a0c4a427d157431d4fd/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+{% endcomment %}
+{% block extend_root %}{% endblock %}
+
+{% compress js %}
+<script src="{% static 'js/libs/jquery-3.1.0.min.js' %}"></script>
+<script src="{% static 'js/libs/outdatedBrowser.min.js' %}"></script>
+{% endcompress %}
+<script type="text/javascript">
+    {% block script %}{% endblock script %}
+    $(function () {
+        {% block script_ready %}{% endblock script_ready %}
+        {% render_block "script_ready" %}
+    });
+    {% render_block "script" %}
+</script>
+{% render_block "js" %}
+{% with_data "js-script" as jsset %}
+    {% for js in jsset %}<script type="text/javascript" src="{% static js %}"></script>{% endfor %}
+{% end_with_data %}
+{% with_data "js-media" as jsset %}
+    {% for js in jsset %}<script type="text/javascript" src="{{ MEDIA_URL }}{{ js }}"></script>{% endfor %}
+{% end_with_data %}
+{% with_data "js-ext" as jsset %}
+    {% for js in jsset %}<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
+{% end_with_data %}
+{% render_block "js_end" %}
+{% render_block "bottom_js" %}
+{% block extrafoot %}{% endblock %}
+<div class="browser-outdated" id="outdated" hidden="hidden">
+    <noscript><h3>{% trans "Please enable JavaScript" %}</h3></noscript>
+    <h3>{% trans "Your browser is out-of-date!" %}</h3>
+    <p>{% trans "Update your browser to view this website correctly." %}</p>
+    <p>
+        <a href="http://outdatedbrowser.com/" class="btn btn-lg btn-outline" id="btnUpdateBrowser">
+            {% trans "Update my browser now" %}
+        </a>
+    </p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+</body>
+</html>

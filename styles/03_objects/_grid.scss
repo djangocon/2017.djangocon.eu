@@ -1,0 +1,284 @@
+//* scss-compile-options: --precision 8
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+
+////////////////////////////////////////////////////////////////////////////////
+// Grid
+////////////////////////////////////////////////////////////////////////////////
+
+@mixin clearfix {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+%column {
+    float: left;
+    min-height: 1px;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+}
+
+@mixin s-m-l-columns {
+    @for $i from 1 through $s-grid {
+        .s-#{$i} {
+            @extend %column;
+        }
+    }
+    @for $i from 1 through $m-grid {
+        .m-#{$i} {
+            @extend %column;
+        }
+    }
+    @for $i from 1 through $l-grid {
+        .l-#{$i} {
+            @extend %column;
+        }
+    }
+}
+
+.grid {
+    box-sizing: border-box;
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    @media (max-width: $screen-s) {
+        width: $grid-s;
+    }
+
+    @media (min-width: $screen-s + 1) {
+        width: $grid-m;
+    }
+
+    @media (min-width: $screen-m + 1) {
+        width: $grid-l;
+    }
+
+    @media (min-width: $screen-l + 1) {
+        width: $grid-xl;
+    }
+
+    @media (min-width: $screen-xl + 1) {
+        width: $grid-limit;
+    }
+}
+
+
+// .grid--narrow {
+//     box-sizing: border-box;
+
+//     *,
+//     *:before,
+//     *:after {
+//         box-sizing: inherit;
+//     }
+
+//     @media (max-width: $screen-s) {
+//         width: $grid--narrow-s;
+//     }
+
+//     @media (min-width: $screen-s + 1) {
+//         width: $grid--narrow-m;
+//     }
+
+//     @media (min-width: $screen-m + 1) {
+//         width: $grid--narrow-l;
+//     }
+
+//     @media (min-width: $screen-l + 1) {
+//         width: $grid--narrow-xl;
+//     }
+
+//     @media (min-width: $screen-xl + 1) {
+//         width: $grid--narrow-limit;
+//     }
+// }
+
+@mixin s-grid {
+    @for $i from 1 through $s-grid {
+        .s-#{$i} {
+            width: percentage((1 / $s-grid) * $i);
+        }
+    }
+}
+
+@mixin m-grid {
+    @for $i from 1 through $m-grid {
+        .m-#{$i} {
+            width: percentage((1 / $m-grid) * $i);
+        }
+    }
+}
+
+@mixin l-grid {
+    @for $i from 1 through $l-grid {
+        .l-#{$i} {
+            width: percentage((1 / $l-grid) * $i);
+        }
+    }
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Offsets
+////////////////////////////////////////////////////////////////////////////////
+
+@mixin offset-s-grid {
+    @for $i from 1 through $s-grid {
+        .off-s-#{$i} {
+            margin-left: percentage((1 / $s-grid) * $i);
+        }
+    }
+}
+
+@mixin offset-m-grid {
+    @for $i from 1 through $m-grid {
+        .off-m-#{$i} {
+            margin-left: percentage((1 / $m-grid) * $i);
+        }
+    }
+}
+
+@mixin offset-l-grid {
+    @for $i from 1 through $l-grid {
+        .off-l-#{$i} {
+            margin-left: percentage((1 / $l-grid) * $i);
+        }
+    }
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Block Grid
+////////////////////////////////////////////////////////////////////////////////
+
+@mixin block($number) {
+    > * {
+        width: percentage(1 / $number);
+        float: left;
+        padding: 0 $gutter / 2;
+    }
+
+    > *:nth-child(#{$number}n + 1) {
+        @include clearfix;
+    }
+}
+
+@media (max-width: $screen-m - 1) {
+    @each $number in $block-columns {
+        .block-s-#{$number} {
+            @include block($number);
+        }
+    }
+}
+
+@media (min-width: $screen-m) and (max-width: $screen-l - 1) {
+    @each $number in $block-columns {
+        .block-m-#{$number} {
+            @include block($number);
+        }
+    }
+}
+
+@media (min-width: $screen-l) {
+    @each $number in $block-columns {
+        .block-l-#{$number} {
+            @include block($number);
+        }
+    }
+}
+
+[class*="block-"] {
+    overflow: auto;
+
+    &:before {
+        content: " ";
+    }
+
+    &:after {
+        @include clearfix;
+    }
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Generated CSS
+////////////////////////////////////////////////////////////////////////////////
+
+// grid
+.grid {
+    margin: 0 auto;
+    display: block;
+
+    &:before {
+        @include clearfix;
+    }
+
+    &:after {
+        @include clearfix;
+    }
+}
+
+
+// generic last
+.last + * {
+    @include clearfix;
+}
+
+.last + *:before {
+    @include clearfix;
+}
+
+
+// columns
+@include s-m-l-columns;
+
+
+// small grid
+@include s-grid;
+@include offset-s-grid;
+
+@media (max-width: $screen-s) {
+    .last-s + * {
+        @include clearfix;
+    }
+}
+
+
+// medium grid
+@media (min-width: $screen-s + 1) and (max-width: $screen-m) {
+    @include m-grid;
+    @include offset-m-grid;
+
+    .last-m + * {
+        @include clearfix;
+    }
+}
+
+
+// large grid
+@media (min-width: $screen-m + 1) {
+    @include l-grid;
+    @include offset-l-grid;
+
+    .last-l + * {
+        @include clearfix;
+    }
+}

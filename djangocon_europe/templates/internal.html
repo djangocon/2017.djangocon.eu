@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n staticfiles cms_tags menu_tags sekizai_tags %}
+
+{% block body_class %}tpl-internal{% endblock %}
+
+{% block header %}
+    <header class="section-film-strip site-header">
+        {% include 'includes/nav.html' %}
+
+        <div class="grid">
+            <div class="s-10 m-6 l-4 centered">
+                <a href="{% page_url 'home' %}">{% include "includes/logo.html" %}</a>
+                <span class="subtitle subtitle--date">3-7 April</span>
+                <span class="subtitle subtitle--location">Firenze</span>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    {% placeholder "content" %}
+{% endblock %}

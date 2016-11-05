@@ -1,0 +1,26 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+.sponsors-row {
+    width: 100%;
+    margin-bottom: $gutter * 2;
+}
+
+.sponsor-image {
+    @include box-shadow(0 10px 10px 0 rgba($black, 0));
+    @include border-radius(15px);
+    @include transition(all .15s ease);
+    opacity: .9;
+    border: 5px solid $grey-l-2;
+    background: $white;
+
+    &:hover {
+        @include transform(translateY(-10px));
+        @include box-shadow(0 10px 10px 0 rgba($black, .5));
+        opacity: 1;
+        border: 5px solid $yellow;
+    }
+}

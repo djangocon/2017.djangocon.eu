@@ -1,0 +1,120 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+////////////////////////////////////////////////////////////////////////////////
+// Basic Forms
+////////////////////////////////////////////////////////////////////////////////
+
+button,
+select,
+option,
+label,
+[type="radio"],
+[type="checkbox"] {
+    cursor: pointer;
+}
+
+input,
+textarea,
+select {
+    font-family: $secondary-font;
+    font-weight: 300;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+[type="text"],
+[type="number"],
+[type="email"],
+[type="password"],
+textarea {
+    @include font-size(16);
+    @include box-shadow(inset 0 -2px 0 0 $grey-n);
+    font-family: $secondary-font;
+    font-weight: 300;
+    border: 0;
+    color: $black;
+    height: 40px;
+    padding: 10px;
+    width: 100%;
+    vertical-align: bottom;
+    background: rgba($white, .8);
+
+    &:hover {
+        @include box-shadow(inset 0 -2px 0 0 $yellow-d-1);
+    }
+
+    &:focus {
+        @include box-shadow(inset 0 -2px 0 0 $yellow);
+        background: $white;
+    }
+}
+
+button {
+    @include font-size(16);
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    height: auto;
+    resize: vertical;
+}
+
+.form-group--help-text {
+    @include font-size(14);
+    color: $grey-l-2;
+}
+
+select {
+    @include font-size(16);
+    @include box-shadow(inset 0 0 0 2px $grey-n);
+    background: $white;
+    border: 0;
+    height: 40px;
+    padding: 10px;
+    // scss-lint:disable DuplicateProperty
+    background: rgba($white, .8);
+
+    &:hover {
+        @include box-shadow(inset 0 0 0 2px $yellow-d-1);
+    }
+
+    &:focus {
+        @include box-shadow(inset 0 0 0 2px $yellow);
+        background: $white;
+    }
+}
+
+// scss-lint:disable SelectorFormat
+#mc_embed_signup {
+    padding-top: $gutter;
+
+    #mc-embedded-subscribe {
+        @include font-size(22);
+    }
+
+    .mc-field-group {
+        width: 25%;
+        padding-bottom: $gutter;
+        margin: 0 auto;
+
+        @media screen and (max-width: $screen-m) {
+            width: 50%;
+        }
+
+        @media screen and (max-width: $screen-s) {
+            width: 70%;
+        }
+    }
+}
+
+.cms .cms-form-login input {
+    vertical-align: middle;
+}

@@ -1,0 +1,34 @@
+{% extends CMS_TEMPLATE %}
+{% load i18n staticfiles cms_tags menu_tags sekizai_tags %}
+
+{% block meta %}
+    {%  if meta %}
+        {% include "meta/meta.html" %}
+    {% endif %}
+{% endblock meta %}
+
+{% block body_class %}tpl-blog{% endblock %}
+
+{% block header %}
+    <header class="section-film-strip site-header">
+        {% include 'includes/nav.html' %}
+
+        <div class="grid">
+            <div class="s-10 m-6 l-4 centered last">
+                <a href="{% page_url 'home' %}">{% include "includes/logo.html" %}</a>
+                <span class="subtitle subtitle--date">3-7 April</span>
+                <span class="subtitle subtitle--location">Firenze</span>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <section class="app app-blog bg-yellow">
+        <div class="grid">
+            <div class="s-12 m-10 l-8 centered">
+                {% block content_blog %}{% endblock %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

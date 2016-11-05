@@ -1,0 +1,14 @@
+[program:${supervisor_name}]
+command=${supervisor_command}
+environment=PYTHONPATH="${www_path}",DJANGO_SETTINGS_MODULE="${settings_module}"
+directory=${www_path}
+user=${www_user}
+numprocs=1
+stdout_logfile=${www_path}/log/${supervisor_name}-stdout.log
+stderr_logfile=${www_path}/log/${supervisor_name}-stderr.log
+autostart=true
+autorestart=true
+startsecs=10
+stopwaitsecs=600
+priority=998
+${supervisor_extra}

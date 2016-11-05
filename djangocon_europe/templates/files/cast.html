@@ -1,0 +1,14 @@
+{% spaceless %}
+<div class="{{ instance.dom_classes }} cast-card widget-image-text widget-image-text--image-before"
+    {{ instance.dom_id }} {{ instance.dom_attributes|safe }}>
+    {% if instance.image %}
+        {% include "partials/image.html" %}
+    {% endif %}
+    <div class="cast-card__info">
+        {% if instance.title %}
+            <{{instance.title_h}} class="widget-image-text__title">{{instance.title}}</{{instance.title_h}}>
+        {% endif %}
+        {% include "partials/text.html" %}
+    </div>
+</div>
+{% endspaceless %}

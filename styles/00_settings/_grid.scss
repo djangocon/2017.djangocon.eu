@@ -1,0 +1,67 @@
+//* scss-compile-options: --precision 8
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+//
+// 0        $screen-s     $screen-m       $screen-l      $screen-xl
+// |-------------|-------------|---------------|--------------|-------- ....
+// |<-----S----->|<-----M----->|<------L------>|<-----XL--------------- ....
+//
+
+
+
+
+
+// the gutter
+
+$gutter: 20px;
+$gutter-double: $gutter * 2;
+$gutter-triple: $gutter * 3;
+$gutter-quadruple: $gutter * 4;
+$gutter-half: $gutter / 2;
+$gutter-quarter: $gutter / 4;
+$gutter-three-quarter: $gutter * 3 / 4;
+
+
+
+
+
+// screen size
+
+$screen-s:   580px;
+$screen-m:   980px;
+$screen-l:  1280px;
+$screen-xl: 1680px;
+
+
+
+
+
+// container size
+
+$grid-s: calc(100% - 80px);
+$grid-m: calc(100% - 160px);
+$grid-l: calc(100% - 280px);
+$grid-xl: calc(100% - 280px);
+$grid-limit: 1200px;
+
+
+
+
+
+// grid columns
+
+$s-grid: 12; // Number of columns in the small grid
+$m-grid: 12; // Number of columns in the medium grid
+$l-grid: 12; // Number of columns in the large grid
+
+
+
+
+
+// the block grid you want to generate
+
+$block-columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12; // Add the number of columns you need

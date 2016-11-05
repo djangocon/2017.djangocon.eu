@@ -1,0 +1,73 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+////////////////////////////////////////////////////////////////////////////////
+// Buttons
+////////////////////////////////////////////////////////////////////////////////
+
+.btn {
+    @include transition(all .15s ease-in-out);
+    @include border-radius(3px);
+    -webkit-appearance: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: $gutter-three-quarter $gutter-double;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.btn--primary {
+    @include box-shadow(inset 0 0 0 2px $yellow);
+    background: rgba($black, .5);
+    color: $yellow;
+
+    &:hover {
+        @include box-shadow(inset 0 0 0);
+        background: $yellow;
+        color: $black;
+    }
+
+    &:focus {
+        @include box-shadow(inset 0 0 0 2px $yellow);
+    }
+}
+
+.btn--secondary {
+    @include box-shadow(inset 0 0 0 2px rgba($white, .2));
+    background: rgba($black, .2);
+    color: $white;
+
+    &:hover {
+        @include box-shadow(inset 0 0 0 2px rgba($white, .3));
+        background: $black;
+        color: $white;
+    }
+
+    &:focus {
+        background: $purple;
+    }
+}
+
+.btn--block {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.btn--small {
+    @include font-size(14);
+    padding: $gutter-half $gutter-three-quarter;
+}
+

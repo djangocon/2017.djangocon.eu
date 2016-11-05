@@ -1,0 +1,102 @@
+---
+scss_files: 'styles/**/*.scss'
+
+exclude:
+ - 'styles/libs/**/*.scss'
+ - 'styles/libs/*.scss'
+ - 'styles/plugins/_slick.scss'
+ - 'styles/plugins/_wysiwyg.scss'
+ - 'styles/jessica/**/*.scss'
+ - 'styles/jessica/*.scss'
+
+linters:
+  BangFormat:
+    enabled: true
+  BorderZero:
+    enabled: true
+    severity: error
+  ColorKeyword:
+    enabled: false
+  ColorVariable:
+    enabled: false
+  Comment:
+    enabled: true
+  DeclarationOrder:
+    enabled: true
+  DuplicateProperty:
+    enabled: true
+  ElsePlacement:
+    enabled: true
+  EmptyLineBetweenBlocks:
+    enabled: true
+  EmptyRule:
+    enabled: true
+  FinalNewline:
+    enabled: false
+  HexLength:
+    enabled: true
+  HexNotation:
+    enabled: true
+  IdSelector:
+    enabled: false
+  ImportPath:
+    enabled: true
+  ImportantRule:
+    enabled: false
+  Indentation:
+    enabled: true
+    severity: error
+    width: 4
+  LeadingZero:
+    enabled: true
+  MergeableSelector:
+    enabled: false
+  NameFormat:
+    enabled: true
+  NestingDepth:
+    enabled: true
+    severity: error
+    max_depth: 6
+  PlaceholderInExtend:
+    enabled: false
+  PropertySortOrder:
+    enabled: false
+  PropertySpelling:
+    enabled: true
+  PseudoElement:
+    enabled: false
+  QualifyingElement:
+    enabled: true
+    exclude: 'styles/plugins/_wysiwyg.scss'
+  SelectorDepth:
+    enabled: true
+    max_depth: 4
+  SelectorFormat:
+    enabled: true
+    convention: 'hyphenated_BEM'
+  Shorthand:
+    enabled: false
+  SingleLinePerProperty:
+    enabled: true
+  SingleLinePerSelector:
+    enabled: false
+  SpaceAfterComma:
+    enabled: true
+  SpaceAfterPropertyColon:
+    enabled: true
+  SpaceBeforeBrace:
+    enabled: true
+  SpaceBetweenParens:
+    enabled: true
+  StringQuotes:
+    enabled: true
+    style: double_quotes
+    severity: error
+  TrailingSemicolon:
+    enabled: true
+  UnnecessaryParentReference:
+    enabled: true
+  VendorPrefix:
+    enabled: true
+  ZeroUnit:
+    enabled: true

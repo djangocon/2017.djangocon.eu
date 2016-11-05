@@ -1,0 +1,85 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+.cast-card-wrapper {
+    @include display-flex;
+    @include flex-wrap(wrap);
+}
+
+.cast-card {
+    @include border-radius(5px);
+    @include box-shadow(0 10px 10px 0 rgba($black, 0));
+    @include transition(all .15s ease);
+    flex-grow: 0;
+    width: calc(25% - #{$gutter});
+    margin: $gutter / 2;
+    background: $black;
+
+    .media__item {
+        @include border-radius(5px 5px 0 0);
+        @include filter(grayscale(100%));
+        @include transition(all .15s ease);
+    }
+
+    &__info {
+        border-top: 2px solid $yellow;
+        padding: $gutter;
+        text-align: center;
+    }
+
+    .widget-image-text__title {
+        @include font-size(24);
+        letter-spacing: .5px;
+        margin-bottom: 0;
+
+        &:after {
+            content: "";
+            width: 40px;
+            height: 1px;
+            background: $purple;
+            margin: $gutter / 2 auto;
+            display: block;
+        }
+    }
+
+    .wysiwyg {
+        @include font-size(18);
+        line-height: 1.1;
+    }
+
+    &:hover {
+        @include transform(translateY(-10px));
+        @include box-shadow(0 10px 10px 0 rgba($black, .5));
+
+        .media__item {
+            @include filter(grayscale(0));
+        }
+    }
+
+    @media screen and (max-width: $screen-m) {
+        width: calc(33.3333% - #{$gutter});
+
+        .widget-image-text__title {
+            @include font-size(18);
+        }
+
+        .wysiwyg {
+            @include font-size(14);
+        }
+    }
+
+    @media screen and (max-width: $screen-s) {
+        width: calc(50% - #{$gutter});
+
+        .cast-card__info {
+            padding: $gutter $gutter / 4;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        width: calc(100% - #{$gutter});
+    }
+}

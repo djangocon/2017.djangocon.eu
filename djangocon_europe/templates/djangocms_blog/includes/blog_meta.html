@@ -1,0 +1,18 @@
+{% load i18n thumbnail cms_tags %}
+<ul class="post-detail__info">
+    {% if post.author %}
+    <li class="post-detail__author">
+        {% trans "by" %} <span class="post-detail__author--name">{% if post.author.get_full_name %}{{ post.author.get_full_name }}{% else %}{{ post.author }}{% endif %}</span>
+    </li>
+    {% endif %}
+    <li class="post-detail__date">
+        / {{ post.date_published|date:"DATE_FORMAT" }}
+    </li>
+</ul>
+<ul class="post-detail__tags">
+    {% if post.tags.exists %}
+        {% for tag in post.tags.all %}
+            <li class="post-tag post-tag--{{ forloop.counter }}"><a href="{% url 'djangocms_blog:posts-tagged' tag=tag.slug %}" class="post-tag__link post-tag__link--{{ tag.count }}">{{ tag.name }}</a>{% if not forloop.last %} {% endif %}</li>
+        {% endfor %}
+    {% endif %}
+</ul>

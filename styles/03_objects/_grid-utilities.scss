@@ -1,0 +1,125 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+////////////////////////////////////////////////////////////////////////////////
+// Grid utilities
+////////////////////////////////////////////////////////////////////////////////
+
+.grid--no-columns {
+    padding-left: $gutter;
+    padding-right: $gutter;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.no-gutter {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.no-gutter-right {
+    padding-right: 0 !important;
+}
+
+.no-gutter-left {
+    padding-left: 0 !important;
+}
+
+.gutter {
+    padding-left: $gutter !important;
+    padding-right: $gutter !important;
+}
+
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+
+.centered {
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    min-height: 0;
+}
+
+.visible-s,
+.visible-m,
+.visible-l {
+    display: none;
+}
+
+@media (max-width: $screen-s) {
+    .hidden-s {
+        display: none !important;
+    }
+
+    .visible-s {
+        display: block !important;
+    }
+
+    .no-gutter-s {
+        padding: 0;
+    }
+
+    .centered-s {
+        float: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        min-height: 0;
+    }
+}
+
+@media (min-width: $screen-s + 1) and (max-width: $screen-m) {
+    .hidden-m {
+        display: none !important;
+    }
+
+    .visible-m {
+        display: block !important;
+    }
+
+    .no-gutter-m {
+        padding: 0;
+    }
+
+    .centered-m {
+        float: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        min-height: 0;
+    }
+}
+
+@media (min-width: $screen-m + 1) {
+    .hidden-l {
+        display: none !important;
+    }
+
+    .visible-l {
+        display: block !important;
+    }
+
+    .no-gutter-l {
+        padding: 0;
+    }
+
+    .centered-l {
+        float: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        min-height: 0;
+    }
+}
+

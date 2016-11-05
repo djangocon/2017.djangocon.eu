@@ -1,0 +1,8 @@
+{% load cms_tags %}{% spaceless %}
+<div class="{{ instance.dom_classes }}" {{ instance.dom_id }} {{ instance.dom_attributes|safe }}>
+{% if instance.title %}<header class="widget-section__header"><{{ instance.title_h }}>{{ instance.title }}</{{ instance.title_h }}></header>{% endif %}
+{% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+{% endfor %}
+</div>
+{% endspaceless %}

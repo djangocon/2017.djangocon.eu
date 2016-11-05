@@ -1,0 +1,95 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+.section-film-strip {
+    position: relative;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        height: $gutter;
+        width: calc(100% - 240px);
+        background: $black;
+        left: 120px;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+
+    @media screen and (max-width: $screen-m) {
+        &:before,
+        &:after {
+            width: calc(100% - 120px);
+            left: 60px;
+            height: $gutter / 2;
+        }
+    }
+
+    @media screen and (max-width: $screen-s) {
+        &:before,
+        &:after {
+            width: calc(100% - 60px);
+            left: 30px;
+            height: $gutter / 2;
+        }
+    }
+}
+
+.tpl-home {
+    .bg-purple, .bg-yellow {
+        text-align: center;
+    }
+}
+
+.tpl-internal, .tpl-404, .tpl-blog {
+    .site-header {
+        padding: $gutter-quadruple 0;
+    }
+
+    .bg-purple, .bg-yellow {
+        padding: $gutter-quadruple * 2 0;
+
+        @media screen and (max-width: $screen-m) {
+            padding: $gutter-triple * 2 0;
+        }
+
+        @media screen and (max-width: $screen-s) {
+            padding: $gutter-quadruple 0;
+        }
+    }
+}
+
+.tpl-404 {
+    text-align: center;
+
+    .play-icon {
+        @include transition(all .8s ease);
+        @include filter(drop-shadow(0 0 0 $yellow));
+
+        &:hover {
+            @include transform(rotate(360deg));
+            @include filter(drop-shadow(0 0 8px $yellow-d-1));
+        }
+    }
+}
+
+.bg-purple {
+    @include background-image(linear-gradient(45deg, rgba($purple, .75), rgba($real-black, .75)));
+    padding: 20vw 0;
+    position: relative;
+}
+
+.bg-yellow {
+    @include background-image(linear-gradient(-45deg, rgba($yellow-d-1, .75), rgba($real-black, .75)));
+    padding: 20vw 0;
+    position: relative;
+}

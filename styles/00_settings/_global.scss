@@ -1,0 +1,48 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+////////////////////////////////////////////////////////////////////////////////
+// Colors
+////////////////////////////////////////////////////////////////////////////////
+
+$black: #262a31;
+$white: #fff;
+
+$grey-d-3: #232221;
+$grey-d-2: #333;
+$grey-d-1: #636261;
+$grey-n:   #939291;
+$grey-l-1: #a3a2a1;
+$grey-l-2: #c3c2c1;
+$grey-l-3: #e3e2e1;
+$grey-l-4: #f4f4f4;
+$grey-l-5: #fafafa;
+$real-black: #220c10;
+$quasi-djangcon: #3b3561;
+$djangcon-yellow: #ffdb4f;
+
+$yellow: #ffdb4f;
+$yellow-d-1: shade($yellow, 20);
+$purple: #785477;
+$purple-l-1: lighten(#785477, 10);
+$almost-white: #fcfcfc;
+$red: #e74c3c;
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Fonts
+////////////////////////////////////////////////////////////////////////////////
+
+$main-font: "Roboto", sans-serif;
+$secondary-font: "Roboto Condensed", sans-serif;
+$base-line: 18;
+$scale-factor: 1.4;
+$line-height: 1.6;
+$line-height-headings: 1.1;
+

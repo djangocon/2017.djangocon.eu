@@ -1,0 +1,97 @@
+{% extends "base_root.html" %}
+{% load i18n staticfiles cms_tags menu_tags sekizai_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block body_class %}tpl-base{% endblock %}
+
+{% block extend_root %}
+    {% addtoblock "bottom_js" %}
+        <script async type="text/javascript">
+        WebFontConfig = {
+            google: { families: [ 'Roboto:400,500,700,300,900',
+                                  'Roboto+Condensed:300,400'] }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+        </script>
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/57f61a0c4a427d157431d4fd/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+<!--End of Tawk.to Script-->
+    {% endaddtoblock %}
+
+    {% block header %}
+        <header class="section-film-strip site-header">
+            {% include 'includes/nav.html' %}
+
+            <div class="grid">
+                <div class="s-8 centered">
+                    <a href="{% page_url 'home' %}">{% include "includes/logo.html" %}</a>
+                    <span class="subtitle subtitle--date">3-7 April</span>
+                    <span class="subtitle subtitle--location">Firenze</span>
+                </div>
+                {% block sub-header %}{% endblock %}
+            </div>
+        </header>
+    {% endblock %}
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="section-film-strip site-footer">
+        <div class="grid">
+            <div class="s-12 m-4 l-4 last-s visible-s">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/DjangoConEurope/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/DjangoConEurope" target="_blank"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="s-12 m-4 l-4 last-s">
+                <div class="footer-nav">
+                    <a href="{% page_url 'coc' %}">Code of conduct</a>
+                </div>
+            </div>
+            <div class="s-12 m-4 l-4 last-s hidden-s">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/DjangoConEurope/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/DjangoConEurope" target="_blank"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="s-12 m-4 l-4 last">
+                <div class="copyright">
+                    <p>proudly supported by <a href="https://www.fuzzybrains.org" target="_blank">Fuzzy Brains</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+{% addtoblock "script_ready" %}
+
+    var main_nav_toggle = $('#js-main-nav-toggle');
+    var main_nav = $('*[data-role="site-nav"]');
+
+    main_nav_toggle.on('click', function () {
+        main_nav_toggle.toggleClass('active');
+        main_nav.toggleClass('active');
+    });
+
+{% endaddtoblock %}
+
+{% endblock extend_root %}

@@ -1,0 +1,248 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+.site-header {
+    padding: 25vw 0;
+    position: relative;
+    text-align: center;
+    background: linear-gradient(45deg, rgba($quasi-djangcon, .7), rgba($real-black, .7));
+}
+
+.subtitle {
+    // scss-lint:disable DuplicateProperty
+    display: block;
+    color: rgba($white, .2);
+    color: $djangcon-yellow;
+    color: rgba($djangcon-yellow, .75);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 400;
+    line-height: 1;
+
+    &--date {
+        @include font-size(30);
+        margin-top: $gutter;
+        font-weight: 300;
+    }
+
+    &--location {
+        @include font-size(36);
+    }
+}
+
+.logo {
+    @include transition(all .2s ease-in-out);
+    width: 100%;
+    height: auto;
+    fill: $purple;
+    margin: 0 auto;
+    display: block;
+
+    @media screen and (max-width: $screen-s) {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &:hover {
+        //@include filter(drop-shadow( 0px 2px 10px rgba(#000, .7) ));
+        fill: $yellow;
+    }
+}
+
+
+////
+// Menu
+////
+
+.hamburger {
+    @include border-radius(400px);
+    @include transition-timing-function(linear);
+    @include transition-duration(.15s);
+    @include transition-property(opacity, filter);
+    @include box-shadow(0 0 0 2px $yellow);
+    position: fixed;
+    top: $gutter * 2;
+    right: $gutter * 8;
+    font: inherit;
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 15px;
+    cursor: pointer;
+    text-transform: none;
+    color: inherit;
+    border: 0;
+    background-color: rgba(#262a31, .5);
+    z-index: 999;
+    line-height: 1;
+    height: 60px;
+
+    @media only screen and (max-width: $screen-m) {
+        right: $gutter * 4;
+        top: $gutter;
+        left: auto;
+    }
+
+    @media only screen and (max-width: $screen-s) {
+        @include transform(scale(.75));
+        right: 40px;
+        top: $gutter;
+        left: auto;
+    }
+
+    &:hover {
+        background-color: rgba(#262a31, .8);
+
+        .hamburger-inner,
+        .hamburger-inner:after,
+        .hamburger-inner:before {
+            background-color: $yellow;
+        }
+    }
+
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+        background-color: $white;
+    }
+}
+
+.hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before {
+    @include transition-timing-function(ease);
+    @include transition-duration(.15s);
+    @include transition-property(transform);
+    @include border-radius(4px);
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: $black;
+}
+
+.hamburger-inner {
+    @include transition-timing-function(cubic-bezier(.55, .055, .675, .19));
+    @include transition-duration(.3s);
+    top: 50%;
+    display: block;
+    margin-top: -2px;
+}
+
+.hamburger--spin .hamburger-inner:before {
+    @include transition(top .1s .34s ease-in, opacity .1s ease-in);
+}
+
+.hamburger-inner:before {
+    top: -10px;
+}
+
+.hamburger-inner:after {
+    bottom: -10px;
+}
+
+.hamburger-inner:after, .hamburger-inner:before {
+    display: block;
+    content: "";
+}
+
+.hamburger--spin.active .hamburger-inner {
+    @include transition-delay(.14s);
+    @include transition-timing-function(cubic-bezier(.215, .61, .355, 1));
+    @include transform(rotate(225deg));
+}
+
+.hamburger--spin.active .hamburger-inner:before {
+    @include opacity(0);
+    @include transition(top .1s ease-out, opacity .1s .14s ease-out);
+    top: 0;
+}
+
+.hamburger--spin.active .hamburger-inner:after {
+    @include transition(bottom .1s ease-out, transform .3s .14s cubic-bezier(.215, .61, .355, 1));
+    @include transform(rotate(-90deg));
+    bottom: 0;
+}
+
+.site-nav {
+    @include transform(translate3d(0, 0, 0));
+    @include transition(background 500ms ease);
+    @include user-select(none);
+    @include opacity(0);
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    background: transparent;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+
+    &.active {
+        @include opacity(1);
+        background: rgba($black, .95);
+        z-index: 998;
+
+        .site-nav__list a {
+            @include opacity(1);
+            @include transform(translateY(0));
+        }
+    }
+}
+
+$maxitems: 15;
+
+@for $i from 0 to $maxitems {
+    .site-nav__list li:nth-child(#{$i}) a {
+        @include transition-delay(($i * .05s));
+    }
+}
+
+.site-nav__list {
+    @include display-flex();
+    @include justify-content(center);
+    @include flex-direction(column);
+    @include justify-content(space-around);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: $gutter * 8 0;
+
+    @media only screen and (orientation: landscape) {
+        padding: $gutter * 4 0;
+    }
+
+    li {
+        @include display-flex();
+        @include flex(1 1 auto);
+    }
+
+    a {
+        @include transition(all 200ms cubic-bezier(.17, .67, .38, 1.46));
+        @include transform(translateY(-200px));
+        @include font-size(24);
+        @include opacity(0);
+        @include flex(1 1 auto);
+        @include display-flex();
+        @include flex-direction(column);
+        @include justify-content(center);
+        border: 0;
+
+        &:hover {
+            background: $purple;
+            color: $yellow;
+        }
+    }
+}

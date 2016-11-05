@@ -1,0 +1,40 @@
+/*
+ * Copyright (C) 2016-2017, Fuzzy Brains APS
+ * All rights reserved.
+ *
+ * This file is non-free. See README.md for an explanation.
+ */
+// scss-lint:disable DuplicateProperty
+@mixin margin($size1, $size2: null, $size3: null, $size4: null) {
+    margin: calulate-px($size1) calulate-px($size2) calulate-px($size3) calulate-px($size4);
+    margin: calculate-rem($size1) calculate-rem($size2) calculate-rem($size3) calculate-rem($size4);
+}
+
+@mixin font-size($size) {
+    font-size: $size + px;
+    font-size: calculate-rem($size);
+}
+// scss-lint:enable DuplicateProperty
+
+%image-vertical-aligned {
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+%centered-content {
+    @include display-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%display-flex {
+    @include display-flex;
+}
+
+%align-items-center {
+    @include align-items(center);
+}

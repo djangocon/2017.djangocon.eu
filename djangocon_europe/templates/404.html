@@ -1,0 +1,21 @@
+{% extends "internal.html" %}
+{% load i18n staticfiles cms_tags menu_tags sekizai_tags %}
+
+{% block body_class %}tpl-404{% endblock %}
+
+{% block content %}
+<section class="widget-section section-film-strip bg-yellow">
+    <div class="grid">
+        <div class="s-12 m-10 l-10 last centered">
+            <h2>Ops! This movie is in 404mm film.<br>
+                Click play to watch it again
+            </h2>
+        </div>
+        <div class="s-3 m-2 l-1 last centered">
+            <a href="{% page_url 'home' %}">
+                <img class="play-icon" src="{% static 'img/play-button.png' %}">
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
