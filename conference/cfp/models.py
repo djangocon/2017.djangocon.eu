@@ -3,8 +3,10 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.encoding import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class AbstractSubmission(models.Model):
     EVERY = 'every'
     BEGINNER = 'beginner'
@@ -31,7 +33,7 @@ class AbstractSubmission(models.Model):
     updated_at = models.DateTimeField(
         _('Updated'), auto_now=True
     )
-    notes = models.TextField(_('Notes'))
+    notes = models.TextField(_('Notes'), blank=True)
     selected = models.BooleanField(_('Selected'), default=False)
     proposal_title = models.CharField(
         _('Title'), max_length=400
@@ -44,17 +46,14 @@ class AbstractSubmission(models.Model):
     )
 
     class Meta:
+        abstract = True
         verbose_name = _('submission')
         verbose_name_plural = _('submissions')
 
     def __str__(self):
-        return '{} "{}" by {}'.format(self._meta.verbose_name, self.proposal_title, self.author)
-
-    class Meta:
-        abstract = True
-
-    def __str__(self):
-        return '{} "{}" by {}'.format(self._meta.verbose_name, self.proposal_title, self.author)
+        return '{} "{}" by {}'.format(self._meta.verbose_name,
+                                      self.proposal_title,
+                                      self.author)
 
 
 class Submission(AbstractSubmission):
