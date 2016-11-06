@@ -251,8 +251,10 @@ GOOGLE_ANALYTICS_ID = 'UA-29840573-18'
 
 DEFAULT_FROM_EMAIL = 'DjangoCon Europe 2017 <2017@djangocon.eu>'
 EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_BACKEND = 'djmail.backends.default.EmailBackend'
-DJMAIL_REAL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = env('EMAIL_BACKEND',
+                    default='djmail.backends.default.EmailBackend')
+DJMAIL_REAL_BACKEND = env('DJMAIL_REAL_BACKEND',
+                          default='django.core.mail.backends.smtp.EmailBackend')
 
 META_USE_SITES = True
 META_SITE_PROTOCOL = 'https'
