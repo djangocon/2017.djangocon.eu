@@ -10,14 +10,6 @@ from djmail.template_mail import MagicMailBuilder
 
 
 class SubmissionView(CreateView):
-
-
-    def __init__(self, form_class, model, *args, **kwargs):
-        self.model = model
-        self.form_class = form_class
-        super(SubmissionView, self).__init__(*args, **kwargs)
-
-
     def _send_notification(self):
         if self.object:
             with open(os.path.join(settings.STATIC_ROOT, 'css', 'style.css'), 'r') as css_file:
