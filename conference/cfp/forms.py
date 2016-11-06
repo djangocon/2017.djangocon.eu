@@ -21,7 +21,7 @@ class TalkSubmissionForm(forms.ModelForm):
         super(TalkSubmissionForm, self).__init__(*args, **kwargs)
         self.fields['author'].label = _('Your name')
         self.fields['email'].label = _('Your email')
-        self.fields['author_bio'].label = _('Tell us about you')
+        self.fields['author_bio'].label = _('Tell us about yourself')
         self.fields['proposal_title'].label = _('Your proposal\'s title')
         self.fields['proposal_abstract'].label = _('Abstract of your proposal')
         self.fields['proposal_why'].label = _('What the audience will get from your proposal?')
@@ -49,7 +49,7 @@ class WorkshopSubmissionForm(forms.ModelForm):
         super(WorkshopSubmissionForm, self).__init__(*args, **kwargs)
         self.fields['author'].label = _('Your name')
         self.fields['email'].label = _('Your email')
-        self.fields['author_bio'].label = _('Tell us about you')
+        self.fields['author_bio'].label = _('Tell us about yourself')
         self.fields['proposal_title'].label = _('Your proposal\'s title')
         self.fields['proposal_abstract'].label = _('Abstract of your proposal')
         self.fields['proposal_audience'].label = _(
