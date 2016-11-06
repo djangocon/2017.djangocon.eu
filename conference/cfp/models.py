@@ -44,8 +44,8 @@ class AbstractSubmission(models.Model):
     )
 
     class Meta:
-        verbose_name = _('talk submission')
-        verbose_name_plural = _('talk submissions')
+        verbose_name = _('submission')
+        verbose_name_plural = _('submissions')
 
     def __str__(self):
         return '{} "{}" by {}'.format(self._meta.verbose_name, self.proposal_title, self.author)
