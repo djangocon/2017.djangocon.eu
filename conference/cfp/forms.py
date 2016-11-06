@@ -4,13 +4,13 @@ from __future__ import absolute_import, print_function, unicode_literals
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from conference.cfp.models import TalkSubmission, WorkshopSubmission
+from conference.cfp.models import Submission, WorkshopSubmission
 
 
 class TalkSubmissionForm(forms.ModelForm):
 
     class Meta:
-        model = TalkSubmission
+        model = Submission
         fields = (
             'author', 'email', 'author_bio', 'proposal_title',
             'proposal_abstract', 'proposal_why', 'proposal_requirements', 'proposal_audience',

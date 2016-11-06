@@ -57,7 +57,7 @@ class AbstractSubmission(models.Model):
         return '{} "{}" by {}'.format(self._meta.verbose_name, self.proposal_title, self.author)
 
 
-class TalkSubmission(AbstractSubmission):
+class Submission(AbstractSubmission):
     proposal_why = models.TextField(
         _('Motivation')
     )
@@ -86,14 +86,14 @@ class TalkSubmission(AbstractSubmission):
 
 
 class WorkshopSubmission(AbstractSubmission):
-    TWO_HOURS = '2_hrs'
-    THREE_HOURS = '3_hrs'
+    TWO_HOURS = '2hrs'
+    THREE_HOURS = '3hrs'
     DURATIONS = (
         (TWO_HOURS, _('Two Hours')),
         (THREE_HOURS, _('Three Hours')),
     )
     workshop_duration = models.CharField(
-        _('Durtation'), choices=DURATIONS, max_length=10,
+        _('Duration'), choices=DURATIONS, max_length=10,
     )
 
     class Meta:

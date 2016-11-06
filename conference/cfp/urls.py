@@ -6,10 +6,10 @@ from django.conf.urls import url
 from .views import SubmissionView
 
 from .forms import TalkSubmissionForm
-from .models import TalkSubmission
+from .models import Submission
 
 urlpatterns = [
     url(r'^', SubmissionView.as_view(form_class=TalkSubmissionForm,
-                                     model=TalkSubmission),
-                                     name='cfp_talks_submission'),
+                                     model=Submission),
+        name='cfp_talks_submission'),
 ]

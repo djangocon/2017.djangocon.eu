@@ -5,10 +5,10 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ExportActionModelAdmin
 
-from .models import TalkSubmission, WorkshopSubmission
+from .models import Submission, WorkshopSubmission
 
 
-@admin.register(TalkSubmission)
+@admin.register(Submission)
 class TalkSubmissionAdmin(ExportActionModelAdmin):
     list_display = (
         'author', 'proposal_title', 'selected', 'pycon', 'created_at',
@@ -20,7 +20,7 @@ class TalkSubmissionAdmin(ExportActionModelAdmin):
 
 class TalkSubmissionData(resources.ModelResource):
     class Meta:
-        model = TalkSubmission
+        model = Submission
 
 
 @admin.register(WorkshopSubmission)
