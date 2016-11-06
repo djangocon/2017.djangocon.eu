@@ -3,9 +3,11 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.encoding import python_2_unicode_compatible
 
 
-class Submission(models.Model):
+@python_2_unicode_compatible
+class AbstractSubmission(models.Model):
     EVERY = 'every'
     BEGINNER = 'beginner'
     INTER = 'inter'
@@ -31,20 +33,35 @@ class Submission(models.Model):
     updated_at = models.DateTimeField(
         _('Updated'), auto_now=True
     )
+    notes = models.TextField(_('Notes'), blank=True)
+    selected = models.BooleanField(_('Selected'), default=False)
     proposal_title = models.CharField(
         _('Title'), max_length=400
     )
     proposal_abstract = models.TextField(
         _('Abstract')
     )
+    proposal_audience = models.CharField(
+        _('Audience'), choices=AUDIENCE, max_length=10,
+    )
+
+    class Meta:
+        abstract = True
+        verbose_name = _('submission')
+        verbose_name_plural = _('submissions')
+
+    def __str__(self):
+        return '{} "{}" by {}'.format(self._meta.verbose_name,
+                                      self.proposal_title,
+                                      self.author)
+
+
+class Submission(AbstractSubmission):
     proposal_why = models.TextField(
         _('Motivation')
     )
     proposal_requirements = models.TextField(
         _('Requirements'), blank=False, default='',
-    )
-    proposal_audience = models.CharField(
-        _('Audience'), choices=AUDIENCE, max_length=10,
     )
     mentor_wanted = models.BooleanField(
         _('Mentor'), default=False,
@@ -56,17 +73,28 @@ class Submission(models.Model):
         help_text=_('Are you an experienced speaker and are you willing to help other speakers? '
                     'Select this and we will get in contact with you!')
     )
-    notes = models.TextField(_('Notes'))
     pycon = models.BooleanField(
         _('PyCon'), default=False,
         help_text=_('We will share your proposal with the PyCon Italia Team and they will '
                     'evaluate independently your proposal.')
     )
-    selected = models.BooleanField(_('Selected'), default=False)
 
     class Meta:
         verbose_name = _('talk submission')
         verbose_name_plural = _('talk submissions')
 
-    def __str__(self):
-        return '{} "{}" by {}'.format(self._meta.verbose_name, self.proposal_title, self.author)
+
+class WorkshopSubmission(AbstractSubmission):
+    TWO_HOURS = '2hrs'
+    THREE_HOURS = '3hrs'
+    DURATIONS = (
+        (TWO_HOURS, _('Two Hours')),
+        (THREE_HOURS, _('Three Hours')),
+    )
+    workshop_duration = models.CharField(
+        _('Duration'), choices=DURATIONS, max_length=10,
+    )
+
+    class Meta:
+        verbose_name = _('workshop submission')
+        verbose_name_plural = _('workshop submissions')

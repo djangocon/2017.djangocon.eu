@@ -8,14 +8,8 @@ from django.conf import settings
 from django.views.generic import CreateView
 from djmail.template_mail import MagicMailBuilder
 
-from .forms import SubmissionForm
-from .models import Submission
-
 
 class SubmissionView(CreateView):
-    form_class = SubmissionForm
-    model = Submission
-
     def _send_notification(self):
         if self.object:
             with open(os.path.join(settings.STATIC_ROOT, 'css', 'style.css'), 'r') as css_file:
