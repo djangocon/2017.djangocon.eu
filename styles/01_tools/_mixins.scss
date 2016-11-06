@@ -1,9 +1,9 @@
-/*
- * Copyright (C) 2016-2017, Fuzzy Brains APS
- * All rights reserved.
- *
- * This file is non-free. See README.md for an explanation.
- */
+//
+// Copyright (C) 2016-2017, Fuzzy Brains APS
+// All rights reserved.
+//
+// This file is non-free. See README.md for an explanation.
+//
 // scss-lint:disable DuplicateProperty
 @mixin margin($size1, $size2: null, $size3: null, $size4: null) {
     margin: calulate-px($size1) calulate-px($size2) calulate-px($size3) calulate-px($size4);
