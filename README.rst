@@ -43,7 +43,7 @@ We use compass to compiles scss files to css::
 
     compass compile
 
-After that collectstatic files
+After that collectstatic files::
 
     python manage.py collectstatic
 
