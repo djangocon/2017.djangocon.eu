@@ -33,6 +33,7 @@ Example::
     SECRET_KEY=my-secret-key
     CACHE_URL=rediscache://127.0.0.1:6379:1
     EMAIL_HOST=localhost
+    EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 
 
 Compile sass files
@@ -41,6 +42,10 @@ Compile sass files
 We use compass to compiles scss files to css::
 
     compass compile
+
+After that collectstatic files::
+
+    python manage.py collectstatic
 
 
 
