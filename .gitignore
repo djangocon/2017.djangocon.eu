@@ -41,3 +41,5 @@ celerybeat-schedule
 tmp
 /fabfile.py
 /requirements-live.txt
+*tar.gz
+*tgz
