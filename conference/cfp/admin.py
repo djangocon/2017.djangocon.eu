@@ -2,10 +2,16 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 from import_export import resources
 from import_export.admin import ExportActionModelAdmin
 
 from .models import Submission, WorkshopSubmission
+
+
+def set_submission_as_selected(modeladmin, request, queryset):
+    queryset.update(selected=True)
+set_submission_as_selected.short_description = _("Set submission as 'Selected'")
 
 
 @admin.register(Submission)
@@ -16,6 +22,7 @@ class TalkSubmissionAdmin(ExportActionModelAdmin):
     )
     list_filter = ('selected', 'pycon')
     search_fields = ('author', 'proposal_title')
+    actions = [set_submission_as_selected]
 
 
 class TalkSubmissionData(resources.ModelResource):

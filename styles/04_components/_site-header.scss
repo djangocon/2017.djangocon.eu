@@ -230,7 +230,7 @@ $maxitems: 15;
     }
 
     a {
-        @include transition(all 200ms cubic-bezier(.17, .67, .38, 1.46));
+        @include transition(transform 200ms cubic-bezier(.17, .67, .38, 1.46));
         @include transform(translateY(-200px));
         @include font-size(24);
         @include opacity(0);

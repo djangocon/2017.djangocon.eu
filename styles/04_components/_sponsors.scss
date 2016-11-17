@@ -7,6 +7,13 @@
 .sponsors-row {
     width: 100%;
     margin-bottom: $gutter * 2;
+    overflow: visible;
+
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 }
 
 .sponsor-image {

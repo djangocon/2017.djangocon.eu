@@ -175,6 +175,7 @@ INSTALLED_APPS = [
     ## DjangoCon related application
     'conference.cfp',
     'conference.helpers',
+    'conference.schedule',
 ]
 
 LANGUAGES = (
