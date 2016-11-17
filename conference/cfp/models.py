@@ -33,13 +33,17 @@ class AbstractSubmission(models.Model):
     updated_at = models.DateTimeField(
         _('Updated'), auto_now=True
     )
-    notes = models.TextField(_('Notes'), blank=True)
+    notes = models.TextField(
+        _('Notes'), blank=True,
+        help_text=_('Write here if you have any further notes regarding your proposal.')
+    )
     selected = models.BooleanField(_('Selected'), default=False)
     proposal_title = models.CharField(
         _('Title'), max_length=400
     )
     proposal_abstract = models.TextField(
-        _('Abstract')
+        _('Abstract'),
+        help_text=_('This text will be published on the website if the talk is accepted.')
     )
     proposal_audience = models.CharField(
         _('Audience'), choices=AUDIENCE, max_length=10,
@@ -58,7 +62,8 @@ class AbstractSubmission(models.Model):
 
 class Submission(AbstractSubmission):
     proposal_why = models.TextField(
-        _('Motivation')
+        _('Motivation'),
+        help_text=_('Explain here why your proposal is important for the attendees an what they will get from it.')
     )
     proposal_requirements = models.TextField(
         _('Requirements'), blank=False, default='',
