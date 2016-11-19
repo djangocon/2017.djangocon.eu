@@ -247,6 +247,16 @@ try:
 except:
     pass
 
+try:
+    import opbeat
+
+    if env('OPBEAT'):
+        INSTALLED_APPS.append('opbeat.contrib.django')
+        MIDDLEWARE_CLASSES.append('opbeat.contrib.django.middleware.OpbeatAPMMiddleware')
+        OPBEAT = env('OPBEAT')
+except:
+    pass
+
 GOOGLE_ANALYTICS_ID = 'UA-29840573-18'
 
 DEFAULT_FROM_EMAIL = 'DjangoCon Europe 2017 <2017@djangocon.eu>'

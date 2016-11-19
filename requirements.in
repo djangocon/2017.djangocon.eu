@@ -31,3 +31,5 @@ djmail==0.13
 premailer
 pip-tools
 djangocms-blog
+opbeat
+requests>2.8.1
