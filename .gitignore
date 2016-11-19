@@ -43,3 +43,4 @@ tmp
 /requirements-live.txt
 *tar.gz
 *tgz
+/requirements-dev.txt

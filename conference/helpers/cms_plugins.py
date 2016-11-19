@@ -15,5 +15,4 @@ class MailchimpPlugin(CMSPluginBase):
             'instance': instance,
         })
         return context
-
-plugin_pool.register_plugin(MailchimpPlugin)
+plugin_pool.register_plugin(MailchimpPlugin)  # NOQA
