@@ -15,10 +15,10 @@ class CFP(AppConfig):
 class CFPApp(CMSApp):
     name = 'CFP'
     _urls = ['conference.cfp.urls']
-apphook_pool.register(CFPApp)
+apphook_pool.register(CFPApp)  # NOQA
 
 
 class WorkshopApp(CMSApp):
     name = 'Workshops'
     _urls = ['conference.cfp.workshop_urls']
-apphook_pool.register(WorkshopApp)
+apphook_pool.register(WorkshopApp)  # NOQA
