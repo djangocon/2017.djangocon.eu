@@ -103,7 +103,7 @@ TEMPLATES = [
     },
 ]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -115,7 +115,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware'
-)
+]
 
 INSTALLED_APPS = [
     'djangocms_admin_style',
@@ -265,7 +265,7 @@ try:
     if env('OPBEAT'):
         INSTALLED_APPS.append('opbeat.contrib.django')
         MIDDLEWARE_CLASSES.append('opbeat.contrib.django.middleware.OpbeatAPMMiddleware')
-        OPBEAT = env('OPBEAT')
+        OPBEAT = env.dict('OPBEAT')
 except:
     pass
 
