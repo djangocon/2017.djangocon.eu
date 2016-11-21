@@ -15,4 +15,4 @@ class Schedule(AppConfig):
 class ScheduleApp(CMSApp):
     name = 'Schedule'
     _urls = ['conference.schedule.urls']
-apphook_pool.register(ScheduleApp)
+apphook_pool.register(ScheduleApp)  # NOQA

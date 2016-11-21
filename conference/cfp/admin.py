@@ -11,7 +11,7 @@ from .models import Submission, WorkshopSubmission
 
 def set_submission_as_selected(modeladmin, request, queryset):
     queryset.update(selected=True)
-set_submission_as_selected.short_description = _("Set submission as 'Selected'")
+set_submission_as_selected.short_description = _("Set submission as 'Selected'")  # NOQA
 
 
 @admin.register(Submission)
