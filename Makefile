@@ -11,7 +11,7 @@ update:
 force: update all
 
 install: all
-	- pip-sync requirements-test.txt
+	- pip-sync requirements-live.txt
 
 %.txt: %.in
 	pip-compile -v --output-file $@ $<

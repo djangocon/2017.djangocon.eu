@@ -257,7 +257,8 @@ try:
 except:
     pass
 
-GOOGLE_ANALYTICS_ID = 'UA-29840573-18'
+GOOGLE_ANALYTICS_ID = env('GOOGLE_ANALYTICS_ID', default=False)
+WIDGETS_GOOGLE_API_KEY = env('GOOGLE_API_KEY', default=False)
 
 DEFAULT_FROM_EMAIL = 'DjangoCon Europe 2017 <2017@djangocon.eu>'
 EMAIL_HOST = env('EMAIL_HOST')
