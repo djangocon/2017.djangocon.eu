@@ -9,6 +9,7 @@ aldryn-apphooks-config==0.2.7
 aldryn-boilerplates==0.7.4
 aldryn-common==1.0.4
 aldryn-search==0.3.0
+aldryn-video==1.0.0
 certifi==2016.9.26
 click==6.6
 cmsplugin-filer==1.1.3
@@ -26,7 +27,7 @@ django-cms==3.3.3
 django-compressor==2.1
 django-environ==0.4.0
 django-filer==1.2.5
-django-formtools==1.0.0.1
+django-formtools==1.0
 django-haystack==2.5.0
 django-import-export==0.5.1
 django-meta-mixin==0.3.0
@@ -41,7 +42,7 @@ django-sekizai==0.10.0
 django-select2==4.3.2
 django-sortedm2m==1.3.2
 django-spurl==0.6.4
-django-standard-form==1.1.5
+django-standard-form==1.1.1
 django-taggit-autosuggest==0.3.0
 django-taggit-templatetags==0.2.5
 django-taggit==0.21.3
