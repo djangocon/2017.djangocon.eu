@@ -154,6 +154,17 @@ INSTALLED_APPS = [
     'meta_mixin',
     'djangocms_blog',
 
+    ## Nephila widgets
+
+    'nephila_widgets',
+    'nephila_widgets.base',
+    'nephila_widgets.conf',
+    'nephila_widgets.files',
+    'nephila_widgets.advanced',
+    'nephila_widgets.design',
+    'nephila_widgets.design.jessica',
+    'nephila_widgets.utils',
+
     ## Third part
 
     'import_export',
