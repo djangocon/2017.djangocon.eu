@@ -2,7 +2,7 @@
 .DS_Store
 ._.DS_Store
 *~
-*.pyc
+*.py[co]
 *.log
 upload
 .settings
