@@ -7,18 +7,25 @@ This is the project for the http://2017.djangocon.eu/ website.
 Run locally
 -----------
 
-* clone the project
-* ``cd djangocon-europe``
-* edit ``djangocon_europe/.env`` key according to your environment. See an example below
-* setup virtualenv::
+* Make sure that you have Python 3.5 installed on your system.
+* Set up your project::
 
-    virtualenv --python=/usr/bin/python3.5 env
-    . env/bin/activate
+    git clone https://github.com/djangocon/2017.djangocon.eu.git  # Clone the project
+    cd 2017.djangocon.eu
+
+* Edit ``djangocon_europe/.env`` key according to your environment. See an example below.
+* Set up your virtualenv::
+
+    virtualenv --python=/usr/bin/python3.5 env                    # Start a virtualenv
+    . env/bin/activate                                            # Use the virtualenv
+    pip install --upgrade pip                                     # Use a current pip version
     pip install pip-tools
-    pip-sync
+    pip-sync                                                      # Install dependencies
 
-* ``python manage.py migrate``
-* ``python manage.py runserver``
+* Set up the Django project::
+
+    python manage.py migrate
+    python manage.py runserver
 
 Example .env file
 -----------------
@@ -39,7 +46,7 @@ Example::
 Compile sass files
 ------------------
 
-We use compass to compiles scss files to css::
+We use `compass`_ to compiles scss files to css::
 
     compass compile
 
@@ -50,6 +57,7 @@ After that collectstatic files::
 
 
 .. _django-dotenv: https://github.com/jpadilla/django-dotenv
+.. _compass: http://compass-style.org/install/
 
 License
 -------
