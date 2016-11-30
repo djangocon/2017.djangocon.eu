@@ -63,7 +63,7 @@ class AbstractSubmission(models.Model):
 class Submission(AbstractSubmission):
     proposal_why = models.TextField(
         _('Motivation'),
-        help_text=_('Explain here why your proposal is important for the attendees an what they will get from it.')
+        help_text=_('Explain here why your proposal is important for the attendees and what they will get from it.')
     )
     proposal_requirements = models.TextField(
         _('Requirements'), blank=False, default='',
