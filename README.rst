@@ -42,6 +42,18 @@ Example::
     EMAIL_HOST=localhost
     EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 
+Expected pages
+--------------
+
+The template expects that the following pages exits:
+
+* Home page (with reverse id "home")
+* Code of Conduct page (reverse id "coc")
+* Blog page (reverse id "blog")
+
+Home and blog pages are created via djangocms-apphook-setup, but
+you have to set the reverse id yourself.
+
 
 Compile sass files
 ------------------
