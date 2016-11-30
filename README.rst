@@ -30,7 +30,7 @@ Run locally
 Example .env file
 -----------------
 
-Configuration uses `django-dotenv`_. Please refer to its document for the configuration details.
+Configuration uses `django-environ`_. Please refer to its document for the configuration details.
 
 Example::
 
@@ -56,7 +56,7 @@ After that collectstatic files::
 
 
 
-.. _django-dotenv: https://github.com/jpadilla/django-dotenv
+.. _django-environ: https://github.com/joke2k/django-environ
 .. _compass: http://compass-style.org/install/
 
 License
