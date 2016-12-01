@@ -42,8 +42,18 @@ Example::
     EMAIL_HOST=localhost
     EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 
+How this site works
+-------------------
+
+DjangoCon Europe 2017 website heaily relies on django CMS for most of its features.
+
+As a primer, have a look at:
+
+* `django CMS tutorial`_ for the basic django CMS concepts
+* `Using django CMS`_ tutorial
+
 Expected pages
---------------
+##############
 
 The template expects that the following pages exits:
 
@@ -51,9 +61,9 @@ The template expects that the following pages exits:
 * Code of Conduct page (reverse id "coc")
 * Blog page (reverse id "blog")
 
-Home and blog pages are created via djangocms-apphook-setup, but
-you have to set the reverse id yourself.
-
+Before browsing the site, go to http://localhost:8000/admin/cms/page/ and
+create the pages / edit the advanced properties of the existing pages
+to set the reverse id.
 
 Compile sass files
 ------------------
@@ -70,6 +80,8 @@ After that collectstatic files::
 
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _compass: http://compass-style.org/install/
+.. _Using django CMS: http://django-cms.readthedocs.io/en/release-3.4.x/user/index.html
+.. _django CMS tutorial: http://django-cms.readthedocs.io/en/release-3.4.x/introduction/index.html
 
 License
 -------
