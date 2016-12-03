@@ -6,6 +6,8 @@
 {% block body_class %}tpl-base{% endblock %}
 
 {% block extend_root %}
+    {% page_url 'home' as home_url %}
+    {% page_url 'coc' as coc_url %}
     {% addtoblock "bottom_js" %}
         <script async type="text/javascript">
         WebFontConfig = {
@@ -42,7 +44,7 @@
 
             <div class="grid">
                 <div class="s-8 centered">
-                    <a href="{% page_url 'home' %}">{% include "includes/logo.html" %}</a>
+                    <a href="{{ home_url }}">{% include "includes/logo.html" %}</a>
                     <span class="subtitle subtitle--date">3-7 April</span>
                     <span class="subtitle subtitle--location">Firenze</span>
                 </div>
@@ -67,7 +69,7 @@
             </div>
             <div class="s-12 m-4 l-4 last-s">
                 <div class="footer-nav">
-                    <a href="{% page_url 'coc' %}">Code of conduct</a>
+                    <a href="{{ coc_url }}">Code of conduct</a>
                 </div>
             </div>
             <div class="s-12 m-4 l-4 last-s hidden-s">

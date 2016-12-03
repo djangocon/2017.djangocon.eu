@@ -4,12 +4,13 @@
 {% block body_class %}tpl-internal{% endblock %}
 
 {% block header %}
+    {% page_url 'home' as home_url %}
     <header class="section-film-strip site-header">
         {% include 'includes/nav.html' %}
 
         <div class="grid">
             <div class="s-10 m-6 l-4 centered">
-                <a href="{% page_url 'home' %}">{% include "includes/logo.html" %}</a>
+                <a href="{{ home_url }}">{% include "includes/logo.html" %}</a>
                 <span class="subtitle subtitle--date">3-7 April</span>
                 <span class="subtitle subtitle--location">Firenze</span>
             </div>

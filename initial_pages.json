@@ -1,0 +1,420 @@
+[
+{
+   "pk": 1,
+   "model": "cms.page",
+   "fields": {
+      "numchild": 2,
+      "limit_visibility_in_menu": null,
+      "application_namespace": null,
+      "is_home": true,
+      "xframe_options": 0,
+      "template": "home.html",
+      "revision_id": 0,
+      "publication_date": "2016-11-30T22:02:32.029Z",
+      "path": "0001",
+      "in_navigation": true,
+      "reverse_id": "home",
+      "site": 1,
+      "parent": null,
+      "login_required": false,
+      "languages": "en",
+      "application_urls": "",
+      "soft_root": false,
+      "changed_date": "2016-12-01T06:42:10.704Z",
+      "created_by": "script",
+      "publisher_public": 2,
+      "publication_end_date": null,
+      "changed_by": "admin",
+      "depth": 1,
+      "publisher_is_draft": true,
+      "creation_date": "2016-11-30T22:02:31.717Z",
+      "navigation_extenders": "",
+      "placeholders": [
+         1
+      ]
+   }
+},
+{
+   "pk": 2,
+   "model": "cms.page",
+   "fields": {
+      "numchild": 2,
+      "limit_visibility_in_menu": null,
+      "application_namespace": null,
+      "is_home": true,
+      "xframe_options": 0,
+      "template": "home.html",
+      "revision_id": 0,
+      "publication_date": "2016-11-30T22:02:32.029Z",
+      "path": "0002",
+      "in_navigation": true,
+      "reverse_id": "home",
+      "site": 1,
+      "parent": null,
+      "login_required": false,
+      "languages": "en",
+      "application_urls": "",
+      "soft_root": false,
+      "changed_date": "2016-12-01T06:42:10.032Z",
+      "created_by": "script",
+      "publisher_public": 1,
+      "publication_end_date": null,
+      "changed_by": "admin",
+      "depth": 1,
+      "publisher_is_draft": false,
+      "creation_date": "2016-11-30T22:02:32.039Z",
+      "navigation_extenders": "",
+      "placeholders": [
+         2
+      ]
+   }
+},
+{
+   "pk": 3,
+   "model": "cms.page",
+   "fields": {
+      "numchild": 0,
+      "limit_visibility_in_menu": null,
+      "application_namespace": "Blog",
+      "is_home": false,
+      "xframe_options": 0,
+      "template": "home.html",
+      "revision_id": 0,
+      "publication_date": "2016-11-30T22:02:34.426Z",
+      "path": "00010001",
+      "in_navigation": true,
+      "reverse_id": "blog",
+      "site": 1,
+      "parent": 1,
+      "login_required": false,
+      "languages": "en",
+      "application_urls": "BlogApp",
+      "soft_root": false,
+      "changed_date": "2016-12-01T06:42:23.328Z",
+      "created_by": "script",
+      "publisher_public": 4,
+      "publication_end_date": null,
+      "changed_by": "admin",
+      "depth": 2,
+      "publisher_is_draft": true,
+      "creation_date": "2016-11-30T22:02:34.238Z",
+      "navigation_extenders": "",
+      "placeholders": [
+         3
+      ]
+   }
+},
+{
+   "pk": 4,
+   "model": "cms.page",
+   "fields": {
+      "numchild": 0,
+      "limit_visibility_in_menu": null,
+      "application_namespace": "Blog",
+      "is_home": false,
+      "xframe_options": 0,
+      "template": "home.html",
+      "revision_id": 0,
+      "publication_date": "2016-11-30T22:02:34.426Z",
+      "path": "00020001",
+      "in_navigation": true,
+      "reverse_id": "blog",
+      "site": 1,
+      "parent": 2,
+      "login_required": false,
+      "languages": "en",
+      "application_urls": "BlogApp",
+      "soft_root": false,
+      "changed_date": "2016-12-01T06:42:23.007Z",
+      "created_by": "script",
+      "publisher_public": 3,
+      "publication_end_date": null,
+      "changed_by": "admin",
+      "depth": 2,
+      "publisher_is_draft": false,
+      "creation_date": "2016-11-30T22:02:34.442Z",
+      "navigation_extenders": "",
+      "placeholders": [
+         4
+      ]
+   }
+},
+{
+   "pk": 5,
+   "model": "cms.page",
+   "fields": {
+      "numchild": 0,
+      "limit_visibility_in_menu": null,
+      "application_namespace": null,
+      "is_home": false,
+      "xframe_options": 0,
+      "template": "INHERIT",
+      "revision_id": 0,
+      "publication_date": "2016-12-01T06:42:42.207Z",
+      "path": "00010002",
+      "in_navigation": true,
+      "reverse_id": "coc",
+      "site": 1,
+      "parent": 1,
+      "login_required": false,
+      "languages": "en",
+      "application_urls": "",
+      "soft_root": false,
+      "changed_date": "2016-12-01T06:42:42.718Z",
+      "created_by": "admin",
+      "publisher_public": 6,
+      "publication_end_date": null,
+      "changed_by": "admin",
+      "depth": 2,
+      "publisher_is_draft": true,
+      "creation_date": "2016-12-01T06:42:32.023Z",
+      "navigation_extenders": "",
+      "placeholders": [
+         6
+      ]
+   }
+},
+{
+   "pk": 6,
+   "model": "cms.page",
+   "fields": {
+      "numchild": 0,
+      "limit_visibility_in_menu": null,
+      "application_namespace": null,
+      "is_home": false,
+      "xframe_options": 0,
+      "template": "INHERIT",
+      "revision_id": 0,
+      "publication_date": "2016-12-01T06:42:42.207Z",
+      "path": "00020002",
+      "in_navigation": true,
+      "reverse_id": "coc",
+      "site": 1,
+      "parent": 2,
+      "login_required": false,
+      "languages": "en",
+      "application_urls": "",
+      "soft_root": false,
+      "changed_date": "2016-12-01T06:42:42.434Z",
+      "created_by": "admin",
+      "publisher_public": 5,
+      "publication_end_date": null,
+      "changed_by": "admin",
+      "depth": 2,
+      "publisher_is_draft": false,
+      "creation_date": "2016-12-01T06:42:42.224Z",
+      "navigation_extenders": "",
+      "placeholders": [
+         7
+      ]
+   }
+},
+{
+   "pk": 1,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "content",
+      "default_width": null
+   }
+},
+{
+   "pk": 2,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "content",
+      "default_width": null
+   }
+},
+{
+   "pk": 3,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "content",
+      "default_width": null
+   }
+},
+{
+   "pk": 4,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "content",
+      "default_width": null
+   }
+},
+{
+   "pk": 5,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "clipboard",
+      "default_width": null
+   }
+},
+{
+   "pk": 6,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "content",
+      "default_width": null
+   }
+},
+{
+   "pk": 7,
+   "model": "cms.placeholder",
+   "fields": {
+      "slot": "content",
+      "default_width": null
+   }
+},
+{
+   "pk": 1,
+   "model": "cms.title",
+   "fields": {
+      "menu_title": null,
+      "has_url_overwrite": false,
+      "publisher_state": 0,
+      "publisher_public": 2,
+      "page": 1,
+      "language": "en",
+      "published": true,
+      "redirect": "",
+      "page_title": null,
+      "path": "",
+      "title": "Home",
+      "publisher_is_draft": true,
+      "creation_date": "2016-11-30T22:02:32.004Z",
+      "meta_description": null,
+      "slug": "home"
+   }
+},
+{
+   "pk": 2,
+   "model": "cms.title",
+   "fields": {
+      "menu_title": null,
+      "has_url_overwrite": false,
+      "publisher_state": 0,
+      "publisher_public": 1,
+      "page": 2,
+      "language": "en",
+      "published": true,
+      "redirect": "",
+      "page_title": null,
+      "path": "",
+      "title": "Home",
+      "publisher_is_draft": false,
+      "creation_date": "2016-11-30T22:02:32.004Z",
+      "meta_description": null,
+      "slug": "home"
+   }
+},
+{
+   "pk": 3,
+   "model": "cms.title",
+   "fields": {
+      "menu_title": null,
+      "has_url_overwrite": false,
+      "publisher_state": 0,
+      "publisher_public": 4,
+      "page": 3,
+      "language": "en",
+      "published": true,
+      "redirect": "",
+      "page_title": null,
+      "path": "blog",
+      "title": "Blog",
+      "publisher_is_draft": true,
+      "creation_date": "2016-11-30T22:02:34.393Z",
+      "meta_description": null,
+      "slug": "blog"
+   }
+},
+{
+   "pk": 4,
+   "model": "cms.title",
+   "fields": {
+      "menu_title": null,
+      "has_url_overwrite": false,
+      "publisher_state": 0,
+      "publisher_public": 3,
+      "page": 4,
+      "language": "en",
+      "published": true,
+      "redirect": "",
+      "page_title": null,
+      "path": "blog",
+      "title": "Blog",
+      "publisher_is_draft": false,
+      "creation_date": "2016-11-30T22:02:34.393Z",
+      "meta_description": null,
+      "slug": "blog"
+   }
+},
+{
+   "pk": 5,
+   "model": "cms.title",
+   "fields": {
+      "menu_title": "",
+      "has_url_overwrite": false,
+      "publisher_state": 0,
+      "publisher_public": 6,
+      "page": 5,
+      "language": "en",
+      "published": true,
+      "redirect": "",
+      "page_title": "",
+      "path": "code-conduct",
+      "title": "Code of conduct",
+      "publisher_is_draft": true,
+      "creation_date": "2016-12-01T06:42:32.291Z",
+      "meta_description": "",
+      "slug": "code-conduct"
+   }
+},
+{
+   "pk": 6,
+   "model": "cms.title",
+   "fields": {
+      "menu_title": "",
+      "has_url_overwrite": false,
+      "publisher_state": 0,
+      "publisher_public": 5,
+      "page": 6,
+      "language": "en",
+      "published": true,
+      "redirect": "",
+      "page_title": "",
+      "path": "code-conduct",
+      "title": "Code of conduct",
+      "publisher_is_draft": false,
+      "creation_date": "2016-12-01T06:42:32.291Z",
+      "meta_description": "",
+      "slug": "code-conduct"
+   }
+},
+{
+   "pk": 1,
+   "model": "cms.urlconfrevision",
+   "fields": {
+      "revision": "617f1c1e-014d-4cff-b6ab-4a71b8b32b13"
+   }
+},
+{
+   "pk": 1,
+   "model": "djangocms_blog.blogconfigtranslation",
+   "fields": {
+      "language_code": "en",
+      "object_name": "Article",
+      "app_title": "Blog",
+      "master": 1
+   }
+},
+{
+   "pk": 1,
+   "model": "djangocms_blog.blogconfig",
+   "fields": {
+      "app_data": "{}",
+      "namespace": "Blog",
+      "type": "djangocms_blog.cms_appconfig.BlogConfig"
+   }
+}
+]
