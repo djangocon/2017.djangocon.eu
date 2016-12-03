@@ -24,4 +24,7 @@ class SubmissionView(CreateView):
 
     def get_success_url(self):
         self._send_notification()
-        return Page.objects.public().get(reverse_id='thanks_cfp').get_absolute_url()
+        try:
+            return Page.objects.public().get(reverse_id='thanks_cfp').get_absolute_url()
+        except Page.DoesNotExist:
+            return Page.objects.public().get_home()
