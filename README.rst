@@ -45,7 +45,7 @@ Example::
 How this site works
 -------------------
 
-DjangoCon Europe 2017 website heaily relies on django CMS for most of its features.
+DjangoCon Europe 2017 website heavily relies on django CMS for most of its features.
 
 As a primer, have a look at:
 
@@ -64,6 +64,15 @@ The template expects that the following pages exits:
 Before browsing the site, go to http://localhost:8000/admin/cms/page/ and
 create the pages / edit the advanced properties of the existing pages
 to set the reverse id.
+
+Default pages
+#############
+
+The ``initial_pages.json`` file includes the above pages to help you bootstrapping the website.
+
+To load the pages run::
+
+    python manage.py loaddata initial_pages.json
 
 Compile sass files
 ------------------
