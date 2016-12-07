@@ -88,8 +88,8 @@
 
     @media only screen and (max-width: $screen-s) {
         @include transform(scale(.75));
-        right: 40px;
-        top: $gutter;
+        right: 10px;
+        top: 10px;
         left: auto;
     }
 

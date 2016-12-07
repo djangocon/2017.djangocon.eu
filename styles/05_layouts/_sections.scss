@@ -35,10 +35,16 @@
     }
 
     @media screen and (max-width: $screen-s) {
+        &.site-header {
+            &:before {
+                height: 0;
+            }
+        }
+
         &:before,
         &:after {
-            width: calc(100% - 60px);
-            left: 30px;
+            width: 100%;
+            left: 0;
             height: $gutter / 2;
         }
     }
