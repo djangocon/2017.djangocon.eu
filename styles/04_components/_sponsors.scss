@@ -30,4 +30,8 @@
         opacity: 1;
         border: 5px solid $yellow;
     }
+
+    @media screen and (max-width: $screen-s) {
+        margin-bottom: $gutter;
+    }
 }
