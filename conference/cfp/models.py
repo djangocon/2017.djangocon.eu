@@ -25,7 +25,7 @@ class AbstractSubmission(models.Model):
         _('E-Mail'), max_length=400
     )
     author_bio = models.CharField(
-        _('Bio'), max_length=100
+        _('Bio'), max_length=400
     )
     created_at = models.DateTimeField(
         _('Submitted'), auto_now_add=True
