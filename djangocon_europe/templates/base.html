@@ -8,6 +8,7 @@
 {% block extend_root %}
     {% page_url 'home' as home_url %}
     {% page_url 'coc' as coc_url %}
+    {% page_url 'manifesto' as manifesto_url%}
     {% addtoblock "bottom_js" %}
         <script async type="text/javascript">
         WebFontConfig = {
@@ -48,7 +49,11 @@
                     <span class="subtitle subtitle--date">3-7 April</span>
                     <span class="subtitle subtitle--location">Firenze</span>
                 </div>
-                {% block sub-header %}{% endblock %}
+                {% block sub-header %}
+                    <div class="s-8 centered manifesto-quote">
+                        <a href="{{ manifesto_url }}"><i>The future is already here — it's just not very evenly distributed.</i></a>
+                    </div>
+                {% endblock %}
             </div>
         </header>
     {% endblock %}

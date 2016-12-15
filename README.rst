@@ -60,6 +60,7 @@ The template expects that the following pages exits:
 * Home page (with reverse id "home")
 * Code of Conduct page (reverse id "coc")
 * Blog page (reverse id "blog")
+* Manifesto page (reverse id "manifesto")
 
 Before browsing the site, go to http://localhost:8000/admin/cms/page/ and
 create the pages / edit the advanced properties of the existing pages
