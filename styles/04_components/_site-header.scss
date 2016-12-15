@@ -246,3 +246,21 @@ $maxitems: 15;
         }
     }
 }
+
+
+.manifesto-quote {
+    margin-top: 35px;
+
+    a {
+        font-style: italic;
+        border-bottom: 1px solid $djangcon-yellow;
+        padding: 0 0 5px 0;
+    }
+}
+
+.tpl-internal {
+
+    .manifesto-quote {
+        @include font-size(18);
+    }
+}
