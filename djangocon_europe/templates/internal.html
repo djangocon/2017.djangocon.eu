@@ -5,6 +5,7 @@
 
 {% block header %}
     {% page_url 'home' as home_url %}
+    {% page_url 'manifesto' as manifesto_url%}
     <header class="section-film-strip site-header">
         {% include 'includes/nav.html' %}
 
@@ -14,6 +15,11 @@
                 <span class="subtitle subtitle--date">3-7 April</span>
                 <span class="subtitle subtitle--location">Firenze</span>
             </div>
+                {% block sub-header %}
+                    <div class="s-12 m-8 l-6 centered centered manifesto-quote">
+                        <a href="{{ manifesto_url }}"><i>The future is already here — it's just not very evenly distributed.</i></a>
+                    </div>
+                {% endblock %}
         </div>
     </header>
 {% endblock %}
