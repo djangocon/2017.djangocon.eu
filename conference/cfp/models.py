@@ -16,7 +16,7 @@ class AbstractSubmission(models.Model):
         (EVERY, _('Everyone')),
         (BEGINNER, _('Beginner')),
         (INTER, _('Intermediate')),
-        (ADVANCED, _('Advances')),
+        (ADVANCED, _('Advanced')),
     )
     author = models.CharField(
         _('Name'), max_length=400
