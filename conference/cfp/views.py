@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
-import os.path
 import datetime
+import os.path
 
 from cms.models import Page
 from django.conf import settings
-from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
+from django.views.generic import CreateView
 from djmail.template_mail import MagicMailBuilder
 
 

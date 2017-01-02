@@ -1,5 +1,7 @@
-from django.test import TestCase
 import datetime
+
+from django.test import TestCase
+
 from .views import is_cfp_closed
 
 
