@@ -39,6 +39,6 @@ class SubmissionView(CreateView):
     def get(self, request, *args, **kwargs):
         # TODO redirect to different template in case of closing
         if is_cfp_closed():
-            redirect_url = Page.objects.get(reverse_id='closed_cfp').get_absolute_url()
+            redirect_url = Page.objects.public().get(reverse_id='closed_cfp').get_absolute_url()
             return HttpResponseRedirect(redirect_url)
         return super(SubmissionView, self).get(request, *args, **kwargs)
