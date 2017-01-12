@@ -35,10 +35,16 @@
     }
 
     @media screen and (max-width: $screen-s) {
+        &.site-header {
+            &:before {
+                height: 0;
+            }
+        }
+
         &:before,
         &:after {
-            width: calc(100% - 60px);
-            left: 30px;
+            width: 100%;
+            left: 0;
             height: $gutter / 2;
         }
     }
@@ -84,12 +90,12 @@
 
 .bg-purple {
     @include background-image(linear-gradient(45deg, rgba($purple, .75), rgba($real-black, .75)));
-    padding: 20vw 0;
+    padding: 10vw 0;
     position: relative;
 }
 
 .bg-yellow {
     @include background-image(linear-gradient(-45deg, rgba($yellow-d-1, .75), rgba($real-black, .75)));
-    padding: 20vw 0;
+    padding: 10vw 0;
     position: relative;
 }

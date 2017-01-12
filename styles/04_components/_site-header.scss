@@ -5,7 +5,7 @@
 // This file is non-free. See README.md for an explanation.
 //
 .site-header {
-    padding: 25vw 0;
+    padding: 15vw 0;
     position: relative;
     text-align: center;
     background: linear-gradient(45deg, rgba($quasi-djangcon, .7), rgba($real-black, .7));
@@ -88,8 +88,8 @@
 
     @media only screen and (max-width: $screen-s) {
         @include transform(scale(.75));
-        right: 40px;
-        top: $gutter;
+        right: 10px;
+        top: 10px;
         left: auto;
     }
 
@@ -244,5 +244,23 @@ $maxitems: 15;
             background: $purple;
             color: $yellow;
         }
+    }
+}
+
+
+.manifesto-quote {
+    margin-top: 35px;
+
+    a {
+        font-style: italic;
+        border-bottom: 1px solid $djangcon-yellow;
+        padding: 0 0 5px 0;
+    }
+}
+
+.tpl-internal {
+
+    .manifesto-quote {
+        @include font-size(18);
     }
 }

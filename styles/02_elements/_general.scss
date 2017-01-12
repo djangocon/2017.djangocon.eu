@@ -57,8 +57,8 @@ body {
     @media screen and (max-width: $screen-s) {
         &:before,
         &:after {
-            width: 30px;
-            background-size: 30px;
+            width: 0;
+            background-size: 0;
         }
     }
 }
