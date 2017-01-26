@@ -90,12 +90,30 @@
 
 .bg-purple {
     @include background-image(linear-gradient(45deg, rgba($purple, .75), rgba($real-black, .75)));
-    padding: 20vw 0;
+    padding: 10vw 0;
     position: relative;
 }
 
 .bg-yellow {
     @include background-image(linear-gradient(-45deg, rgba($yellow-d-1, .75), rgba($real-black, .75)));
-    padding: 20vw 0;
+    padding: 10vw 0;
     position: relative;
+}
+
+.programme {
+
+    li:before {
+        content: "🎞";
+        padding-right: $gutter-half;
+        color: $djangcon-yellow;
+    }
+
+    li {
+        list-style: none;
+
+        strong {
+            color: $djangcon-yellow;
+        }
+    }
+
 }
