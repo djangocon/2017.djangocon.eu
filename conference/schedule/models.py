@@ -1,26 +1,48 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
+from autoslug import AutoSlugField
+from autoslug.utils import slugify
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.template.defaultfilters import truncatechars_html
 from django.utils.translation import gettext_lazy as _
+from filer.fields.image import FilerImageField
+from filer.models import ThumbnailOption
+from meta.models import ModelMeta
 
 from conference.cfp.models import Submission, WorkshopSubmission
 
 
-class Slot(models.Model):
+class Slot(ModelMeta, models.Model):
     """
     Model for conference time slots. It can be for a talk, a workshop, or a custom time slot (i. e. coffee break)
     """
-    talk = models.ForeignKey(Submission, related_name='talks', limit_choices_to={'selected': True},
-                             null=True, blank=True)
-    workshop = models.ForeignKey(WorkshopSubmission, related_name='workshops', limit_choices_to={'selected': True},
-                                 null=True, blank=True)
-    name = models.CharField(_('Name'), max_length=250, null=True, blank=True,
-                            help_text=_('Field for time slots that does not relate to a Talk or a Workshop.'))
+    talk = models.ForeignKey(
+        Submission, related_name='talks', limit_choices_to={'selected': True}, null=True, blank=True
+    )
+    slug = AutoSlugField(
+        _('Slug'), max_length=400, blank=True, populate_from='generated_slug', always_update=True
+    )
+    workshop = models.ForeignKey(
+        WorkshopSubmission, related_name='workshops', limit_choices_to={'selected': True}, null=True, blank=True
+    )
+    name = models.CharField(
+        _('Name'), max_length=250, null=True, blank=True,
+        help_text=_('Field for time slots that does not relate to a Talk or a Workshop.')
+    )
+    mugshot = FilerImageField(verbose_name=_('Speaker mughshot'), null=True, blank=True)
+    twitter = models.CharField(_('Twitter'), max_length=200, default='', blank=True)
+    schedule_abstract = models.TextField(_('Schedule abstract'), blank=True, null=True)
     day = models.DateField(_('Date'))
     start = models.TimeField(_('Start'))
     duration = models.DurationField(_('Duration'))
+
+    _metadata = {
+        'title': 'title',
+        'description': 'get_meta_abstract',
+        'image': 'get_image',
+    }
 
     class Meta:
         verbose_name = _('Time slot')
@@ -35,6 +57,15 @@ class Slot(models.Model):
                 'talk': ValidationError(message=message, code='invalid'),
                 'workshop': ValidationError(message=message, code='invalid'),
             })
+
+    def get_image(self):
+        if self.mugshot:
+            return self.mugshot.url
+        else:
+            return None
+
+    def get_meta_abstract(self):
+        return truncatechars_html(self.abstract, 180)
 
     @property
     def title(self):
@@ -55,7 +86,13 @@ class Slot(models.Model):
         return ''
 
     @property
+    def generated_slug(self):
+        return slugify(self.title)
+
+    @property
     def abstract(self):
+        if self.schedule_abstract:
+            return self.schedule_abstract
         if self.talk:
             return self.talk.proposal_abstract
         elif self.workshop:
@@ -72,6 +109,14 @@ class Slot(models.Model):
                 return '{}h {}min'.format(hours, minutes)
             return '{}h'.format(hours)
         return '{}min'.format(minutes)
+
+    @property
+    def height(self):
+        return self.duration.total_seconds() / 100 * 6
+
+    @property
+    def thumbnail_option(self):
+        return ThumbnailOption.objects.get(name__icontains='speaker').as_dict
 
     def is_talk(self):
         return True if self.talk else False
