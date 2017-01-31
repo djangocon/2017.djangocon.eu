@@ -33,6 +33,9 @@
                     {{ talk.talk.author_bio|linebreaksbr }}
                 </div>
             </aside>
+            <footer class="talk-detail__footer">
+                <a href="{% url "talk-list" %}">{% trans "Full schedule" %}</a>
+            </footer>
         </article>
     </div>
 </div>
