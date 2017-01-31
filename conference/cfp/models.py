@@ -55,9 +55,9 @@ class AbstractSubmission(models.Model):
         verbose_name_plural = _('submissions')
 
     def __str__(self):
-        return '{} "{}" by {}'.format(self._meta.verbose_name,
-                                      self.proposal_title,
-                                      self.author)
+        return '{} by {} ({})'.format(self.proposal_title,
+                                      self.author,
+                                      self._meta.verbose_name)
 
 
 class Submission(AbstractSubmission):
