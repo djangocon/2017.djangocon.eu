@@ -93,3 +93,21 @@
     padding: 10vw 0;
     position: relative;
 }
+
+.programme {
+
+    li:before {
+        content: "🎞";
+        padding-right: $gutter-half;
+        color: $djangcon-yellow;
+    }
+
+    li {
+        list-style: none;
+
+        strong {
+            color: $djangcon-yellow;
+        }
+    }
+
+}

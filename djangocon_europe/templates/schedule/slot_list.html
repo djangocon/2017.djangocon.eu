@@ -1,20 +1,38 @@
-{#{% extends "base.html" %}#}
-{% load i18n %}
+{% extends CMS_TEMPLATE %}{% load i18n thumbnail sekizai_tags cms_tags %}
+
+{% block title-tag %}DjangoCon Europe 2017 | Florence - 3rd - 7th April | Talks Schedule{% endblock %}
+
 {% block content %}
-<div class="grid">
-    <h1>{% trans "Schedule" %}</h1>
-    <ul>
-    {% for item in object_list %}
-        <li>[{{ item.day }}, {{ item.start }} - {{ item.parsed_duration}}]<br />
-            {{ item.title }}
-            {% if not item.name %}
-            by {{ item.author }}:
-            <pre>{{ item.abstract }}</pre>
-            {% endif %}
-        </li>
-    {% empty %}
-        <li>{% trans "No item yet."%}</li>
-    {% endfor %}
-    </ul>
+{% page_url 'venue' as venue_url %}
+<div class="widget-section section-film-strip bg-yellow schedule">
+    <div class="grid">
+        <div class="s-12">
+            <h1>{% trans "Schedule" %}</h1>
+            {% static_placeholder "schedule header" %}
+            {% regroup talks by day as talks_list %}
+
+            {% for day in talks_list %}
+                <section class="schedule-day">
+                    <h3>{{ day.grouper }} @ <a href="{{ venue_url }}">Cinema Odeon</a></h3>
+                    {% for talk in day.list %}
+                        <article class="talk">
+                            <span class="talk__time">{{ talk.start|date:"g:i a" }}</span>
+                            <span class="talk__info{% if talk.is_talk %} talk__talk{% endif %}{% if talk.is_custom %} talk__custom{% endif %}{% if talk.is_workshop %} talk__workshop{% endif %}" style="min-height: {{ talk.height }}px">
+                                <span class="talk__meta">
+                                    {% if talk.is_talk %}
+                                        <a href="{% url 'talk-detail' talk.slug %}" class="talk__title">{{ talk.title }}</a>
+                                        <span class="talk__author">{{ talk.author }}</span>
+                                    {% endif %}
+                                    {% if talk.is_custom %}<span class="talk__title talk__title--custom">{{ talk.title }}</span>{% endif %}
+                                </span>
+                            </span>
+                        </article>
+                    {% empty %}
+                        <li>{% trans "No item yet." %}</li>
+                    {% endfor %}
+                </section>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
