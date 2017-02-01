@@ -89,6 +89,7 @@
 .cast-card-wrapper {
     .cms-plugin {
         width: calc(25% - #{$gutter});
+
         .cast-card {
             width: auto;
         }
