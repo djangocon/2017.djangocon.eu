@@ -1,3 +1,5 @@
+$schedule-border: 3px;
+
 .schedule-day {
     margin: $gutter-double 0;
 }
@@ -10,14 +12,14 @@
 .talk__info {
     margin-left: 10vh;
     padding-left: 2vh;
-    border-left: 3px solid $djangcon-yellow;
+    border-left: $schedule-border solid $djangcon-yellow;
     display: table;
     overflow: hidden;
     background: rgba($djangcon-yellow, .1);
     width: calc(100% - 10vh);
 
     &.talk__custom {
-        border-left: 3px solid $purple-l-1;
+        border-left: $schedule-border solid $purple-l-1;
         background: rgba($purple-l-1, .1);
     }
 }
@@ -50,8 +52,8 @@
 
 .talk-detail__author {
     order: 2;
-    flex: 1 calc(35% - 60px + 3px);
-    border-left: 3px solid $djangcon-yellow;
+    flex: 1 calc(35% - #{$gutter} + #{$schedule-border});
+    border-left: $schedule-border solid $djangcon-yellow;
     padding-left: $gutter * 2;
     margin-left: $gutter * 2;
 }
