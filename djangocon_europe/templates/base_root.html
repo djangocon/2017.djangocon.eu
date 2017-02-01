@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title-tag %}{% block title %}{% page_attribute page_title %}{% endblock %} {% block title-prefix %} - {{ SITE.name }}{% endblock %}{% endblock %}</title>
-    {% block meta_tags %}
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {% block meta %}
         {% autoescape off %}
         {% if meta %}
             {% include 'djangocms_page_meta/meta.html' with meta=meta %}
@@ -15,7 +15,7 @@
             {% if meta.keywords %}{% meta_list 'keywords' meta.keywords|join:"," %}{% endif %}
         {% endif %}
         {% endautoescape %}
-    {% endblock meta_tags %}
+    {% endblock meta %}
     <!-- favicons -->
     <link rel="shortcut icon" href="{% static 'img/favicon/favicon.ico' %}" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon/apple-touch-icon-57x57.png' %}">

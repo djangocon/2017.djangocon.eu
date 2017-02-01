@@ -4,12 +4,12 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-
 aldryn-apphooks-config==0.2.7  # via djangocms-blog
 aldryn-boilerplates==0.7.4  # via aldryn-common, aldryn-video
 aldryn-common==1.0.4      # via aldryn-search
 aldryn-search==0.3.0      # via djangocms-blog
 aldryn-video==1.0.0
+appdirs==1.4.0            # via setuptools
 beautifulsoup4==4.5.1     # via aldryn-video
 certifi==2016.9.26        # via opbeat
 click==6.6                # via pip-tools
@@ -20,6 +20,7 @@ cssutils==1.0.1           # via premailer
 diff-match-patch==20121119  # via django-import-export
 django-appconf==1.0.2     # via aldryn-boilerplates, aldryn-search, cmsplugin-filer, django-compressor
 django-appdata==0.1.6     # via aldryn-apphooks-config
+django-autoslug==1.9.3
 django-classy-tags==0.8.0
 django-clear-cache==0.3
 django-cms==3.3.3
@@ -68,12 +69,14 @@ jsonfield==1.0.3          # via aldryn-video
 lxml==3.6.4               # via aldryn-search, premailer
 micawber==0.3.3           # via aldryn-video
 opbeat==3.5.1
+packaging==16.8           # via setuptools
 paramiko==1.17.2          # via fabric3
 pillow==3.4.1
 pip-tools==1.7.0
 premailer==3.0.1
 psycopg2==2.6.2
 pycrypto==2.6.1           # via paramiko
+pyparsing==2.1.10         # via packaging
 pytz==2016.7
 raven==5.27.1
 rcssmin==1.0.6            # via django-compressor

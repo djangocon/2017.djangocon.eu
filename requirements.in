@@ -34,3 +34,4 @@ pip-tools
 djangocms-blog
 opbeat
 requests>2.8.1
+django-autoslug
