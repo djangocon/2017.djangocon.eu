@@ -16,18 +16,19 @@
     flex-grow: 0;
     width: calc(25% - #{$gutter});
     margin: $gutter / 2;
-    background: $black;
 
     .media__item {
         @include border-radius(5px 5px 0 0);
         @include filter(grayscale(100%));
         @include transition(all .15s ease);
+        background: white;
     }
 
     &__info {
         border-top: 2px solid $yellow;
         padding: $gutter;
         text-align: center;
+        background: $black;
     }
 
     .widget-image-text__title {
@@ -81,5 +82,15 @@
 
     @media screen and (max-width: 320px) {
         width: calc(100% - #{$gutter});
+    }
+}
+
+
+.cast-card-wrapper {
+    .cms-plugin {
+        width: calc(25% - #{$gutter});
+        .cast-card {
+            width: auto;
+        }
     }
 }
