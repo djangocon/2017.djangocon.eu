@@ -1,0 +1,70 @@
+.schedule-day {
+    margin: $gutter-double 0;
+}
+
+.talk__time {
+    display: block;
+    border-bottom: 2px solid $djangcon-yellow;
+}
+
+.talk__info {
+    margin-left: 10vh;
+    padding-left: 2vh;
+    border-left: 3px solid $djangcon-yellow;
+    display: table;
+    overflow: hidden;
+    background: rgba($djangcon-yellow, .1);
+    width: calc(100% - 10vh);
+
+    &.talk__custom {
+        border-left: 3px solid $purple-l-1;
+        background: rgba($purple-l-1, .1);
+    }
+}
+
+.talk__meta {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.talk__title {
+    @include font-size(28);
+    display: block;
+}
+
+.talk__author {
+    @include font-size(22);
+    display: block;
+}
+
+.talk-detail {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.talk-detail__talk {
+    order: 1;
+    flex: 1 65%;
+}
+
+.talk-detail__author {
+    order: 2;
+    flex: 1 calc(35% - 60px + 3px);
+    border-left: 3px solid $djangcon-yellow;
+    padding-left: $gutter * 2;
+    margin-left: $gutter * 2;
+}
+
+.talk-detail__bio {
+    padding-top: $gutter;
+}
+
+.talk-detail__twitter {
+    @include font-size(24);
+    display: block;
+    text-align: right;
+    color: $djangcon-yellow;
+    font-weight: bold;
+    padding-bottom: $gutter;
+}

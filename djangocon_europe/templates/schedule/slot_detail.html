@@ -1,0 +1,39 @@
+{% extends CMS_TEMPLATE %}
+{% load i18n thumbnail sekizai_tags %}
+
+{% block meta %}
+    {%  if meta %}
+        {% include "meta/meta.html" %}
+    {% endif %}
+{% endblock meta %}
+
+{% block title-tag %}DjangoCon Europe 2017 | {{ talk.title }}{% endblock %}
+
+{% block content %}
+<div class="widget-section section-film-strip bg-yellow schedule">
+    <div class="grid">
+        <article class="s-12 talk-detail">
+            <div class="talk-detail__talk">
+                <header class="talk-detail__header">
+                    <h3 class="talk-detail__time">{{ talk.day }} @ {{ talk.start|date:"g:i a" }} <a href="{% url 'talk-list' %}"></a></h3>
+                    <h1 class="talk-detail__title">{{ talk.title }}</h1>
+                </header>
+                <div class="talk-detail__abstract">
+                    {{ talk.abstract|linebreaksbr }}
+                </div>
+            </div>
+            <aside class="talk-detail__author">
+                <h2 class="">{{ talk.author }}</h2>
+                {% if talk.mugshot %}
+                    {% thumbnail talk.mugshot talk.thumbnail_option.size as thumb %}
+                    <div class=""><img src="{{ thumb.url }}" height="{{ thumb.height }}" width="{{ thumb.width }}" alt="{{ talk.author }}"></div>
+                {% endif %}
+                <div class="talk-detail__bio">
+                    {% if talk.twitter %}<a class="talk-detail__twitter" href="https://twitter.com/{{ talk.twitter }}">@{{ talk.twitter }}</a>{% endif %}
+                    {{ talk.talk.author_bio|linebreaksbr }}
+                </div>
+            </aside>
+        </article>
+    </div>
+</div>
+{% endblock %}
