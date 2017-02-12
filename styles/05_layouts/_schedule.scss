@@ -2,6 +2,7 @@ $schedule-border: 3px;
 
 .schedule-day {
     margin: $gutter-double 0;
+    text-align: left;
 }
 
 .talk__time {
@@ -52,7 +53,7 @@ $schedule-border: 3px;
 
 .talk-detail__author {
     order: 2;
-    flex: 1 calc(35% - #{$gutter} + #{$schedule-border});
+    flex: 1 calc(35% - #{$gutter * 2.5} + #{$schedule-border});
     border-left: $schedule-border solid $djangcon-yellow;
     padding-left: $gutter * 2;
     margin-left: $gutter * 2;
@@ -69,4 +70,10 @@ $schedule-border: 3px;
     color: $djangcon-yellow;
     font-weight: bold;
     padding-bottom: $gutter;
+}
+
+.talk-detail__footer {
+    order: 3;
+    flex: 1 100%;
+    text-align: right;
 }
