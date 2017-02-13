@@ -72,7 +72,7 @@
 
 .sponsors-row__platinum {
     .sponsor-image {
-        flex: 0 0 66%;
+        flex: 0 0 55%;
         padding: 3% 7%;
 
         img {
@@ -83,7 +83,7 @@
             flex: 0 0 66%;
         }
         @media screen and (max-width: $screen-s) {
-            flex: 0 0 100%;
+            flex: 0 0 80%;
         }
     }
 }
