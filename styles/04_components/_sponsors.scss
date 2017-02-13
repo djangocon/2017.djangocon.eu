@@ -147,7 +147,7 @@
 
 .sponsors-row__special {
     .sponsor-image {
-        flex: 0 0 50%;
+        flex: 0 0 33%;
         padding: 3% 7%;
 
         img {
@@ -155,7 +155,10 @@
         }
 
         @media screen and (max-width: $screen-m) {
-            flex: 0 0 100%;
+            flex: 0 0 44%;
+        }
+        @media screen and (max-width: $screen-s) {
+            flex: 0 0 66%;
         }
     }
 
