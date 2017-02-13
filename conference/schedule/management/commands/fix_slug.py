@@ -7,7 +7,6 @@ from conference.schedule.models import Slot
 
 
 class Command(NoArgsCommand):
-
     def handle_noargs(self, **options):
         for slot in Slot.objects.all():
             slot.save()
