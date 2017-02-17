@@ -7,13 +7,13 @@
 <section class="blog-list">
     {% block blog_title %}
     <header>
-        <h2 class="blog-section-title">
+        <h1 class="blog-section-title">
         {% if author %}{% trans "Articles by" %} {{ author.get_full_name }}
         {% elif archive_date %}{% trans "Archive" %} &ndash; {% if month %}{{ archive_date|date:'F' }} {% endif %}{{ year }}
         {% elif tagged_entries %}{% trans "Tag" %} &ndash; {{ tagged_entries|capfirst }}
         {% elif category %}{% trans "Category" %} &ndash; {{ category }}
         {% else %}{% trans "Blog" %}{% endif %}
-        </h2>
+        </h1>
     </header>
     {% endblock %}
     {% for post in post_list %}

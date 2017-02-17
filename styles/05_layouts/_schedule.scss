@@ -48,15 +48,55 @@ $schedule-border: 3px;
 
 .talk-detail__talk {
     order: 1;
-    flex: 1 65%;
+    flex: 1 60%;
+
+    @media screen and (max-width: $screen-l) {
+        h1 {
+            @include font-size(32);
+        }
+
+    }
+    @media screen and (max-width: $screen-m) {
+        h1 {
+            @include font-size(30);
+        }
+
+    }
+    @media screen and (max-width: $screen-ms) {
+        flex: 1 100%;
+    }
 }
 
 .talk-detail__author {
     order: 2;
-    flex: 1 calc(35% - #{$gutter * 2.5} + #{$schedule-border});
+    flex: 1 calc(35% - #{$gutter * 2.5});
     border-left: $schedule-border solid $djangcon-yellow;
     padding-left: $gutter * 2;
     margin-left: $gutter * 2;
+    max-width: 30%;
+
+    @media screen and (max-width: $screen-l) {
+        h2 {
+            @include font-size(28);
+        }
+
+    }
+    @media screen and (max-width: $screen-m) {
+        h2 {
+            @include font-size(26);
+        }
+
+    }
+    @media screen and (max-width: $screen-ms) {
+        flex: 1 100%;
+        border-left: 0;
+        padding-left: 0;
+        margin-left: 0;
+        border-top: $schedule-border solid $djangcon-yellow;
+        padding-top: $gutter * 2;
+        margin-top: $gutter * 2;
+        max-width: 100%;
+    }
 }
 
 .talk-detail__bio {

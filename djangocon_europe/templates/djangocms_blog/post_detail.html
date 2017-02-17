@@ -9,7 +9,7 @@
 {% block content_blog %}
 <article id="post-{{ post.slug }}" class="post-item post-detail">
     <header>
-        <h2>{% render_model post "title" %}</h2>
+        <h1>{% render_model post "title" %}</h1>
         {% block blog_meta %}
             {% include "djangocms_blog/includes/blog_meta.html" %}
         {% endblock %}
