@@ -69,9 +69,9 @@ class Slot(ModelMeta, models.Model):
 
     @property
     def title(self):
-        if self.talk:
+        if self.talk_id:
             return self.talk.proposal_title
-        elif self.workshop:
+        elif self.workshop_id:
             return self.workshop.proposal_title
         elif self.name:
             return self.name
