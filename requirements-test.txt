@@ -4,6 +4,9 @@
 #
 #    pip-compile --output-file requirements-test.txt requirements-test.in
 #
+--extra-index-url https://devpi.iast.it/nephila/dev/+simple/
+--extra-index-url https://devpi.divio.ch/divio/all/+simple/
+
 aldryn-apphooks-config==0.2.7
 aldryn-boilerplates==0.7.4
 aldryn-common==1.0.4

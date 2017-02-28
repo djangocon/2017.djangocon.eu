@@ -24,3 +24,4 @@ class SlotAdmin(ExportActionModelAdmin):
     search_fields = ('talk__author', 'talk__proposal_title', 'workshop__author', 'workshop__proposal_title')
     resource_class = SlotResource
     readonly_fields = ('slug',)
+    date_hierarchy = 'day'

@@ -227,6 +227,11 @@ $maxitems: 15;
     li {
         @include display-flex();
         @include flex(1 1 auto);
+
+        @media only screen and (max-width: $screen-xs) {
+            padding: $gutter 0;
+        }
+
     }
 
     a {
