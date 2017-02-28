@@ -1,8 +1,17 @@
 $schedule-border: 3px;
 
 .schedule-day {
-    margin: $gutter-double 0;
+    margin: $gutter-double * 3 0;
     text-align: left;
+
+    hr {
+        width: 60%;
+        margin-bottom: $gutter-double;
+    }
+}
+
+h1 + .schedule-day {
+    margin: $gutter-double 0;
 }
 
 .talk__time {

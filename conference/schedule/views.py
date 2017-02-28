@@ -10,6 +10,12 @@ class SlotList(ListView):
     model = Slot
     context_object_name = 'talks'
 
+    def get_context_data(self, **kwargs):
+        context = super(SlotList, self).get_context_data(**kwargs)
+        context['talks'] = super(SlotList, self).get_queryset().filter(workshop__isnull=True)
+        context['workshops'] = super(SlotList, self).get_queryset().filter(workshop__isnull=False)
+        return context
+
 
 class SlotDetail(DetailView):
     model = Slot
