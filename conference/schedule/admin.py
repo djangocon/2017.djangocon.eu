@@ -13,3 +13,4 @@ class SlotAdmin(ExportMixin, admin.ModelAdmin):
     search_fields = ('talk__author', 'talk__proposal_title', 'workshop__author', 'workshop__proposal_title')
 
     readonly_fields = ('slug',)
+    date_hierarchy = 'day'
