@@ -4,7 +4,7 @@
     <span class="talk__info{% if talk.is_talk %} talk__talk{% endif %}{% if talk.is_custom %} talk__custom{% endif %}{% if talk.is_workshop %} talk__workshop{% endif %}" style="{% if talk.is_talk %}min-height: {{ talk.height }}px{% else %}min-height: 120px{% endif %}">
         <span class="talk__meta">
             {% if not talk.is_custom and talk.slug %}
-                <a href="{% url 'talk-detail' slug=talk.slug %}" class="talk__title">1{{ talk.title }}</a>
+                <a href="{% url 'talk-detail' slug=talk.slug %}" class="talk__title">{{ talk.title }}</a>
                 <span class="talk__author">{{ talk.author }}</span>
             {% endif %}
             {% if talk.is_custom %}<span class="talk__title talk__title--custom">{{ talk.title }}</span>{% endif %}
