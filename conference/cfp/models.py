@@ -90,11 +90,9 @@ class Submission(AbstractSubmission):
 
 
 class WorkshopSubmission(AbstractSubmission):
-    TWO_HOURS = '2hrs'
-    THREE_HOURS = '3hrs'
+    TWO_HOURS = '2'
     DURATIONS = (
-        (TWO_HOURS, _('Two Hours')),
-        (THREE_HOURS, _('Three Hours')),
+        (TWO_HOURS, _('2 Hours')),
     )
     workshop_duration = models.CharField(
         _('Duration'), choices=DURATIONS, max_length=10,
