@@ -15,7 +15,6 @@ sitemaps = {'sitemaps': {'cmspages': CMSSitemap}}
 
 urlpatterns = [
     url(r'^sitemap\.xml$', sitemap, sitemaps),
-    url(r'^select2/', include('django_select2.urls')),
     url(r'^robots\.txt$', include('robots.urls')),
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
