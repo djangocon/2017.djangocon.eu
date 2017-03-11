@@ -118,7 +118,10 @@ h1 + .schedule-day {
     text-align: right;
     color: $djangcon-yellow;
     font-weight: bold;
-    padding-bottom: $gutter;
+}
+
+.talk-detail__bio--body {
+    margin-top: $gutter;
 }
 
 .talk-detail__footer {
