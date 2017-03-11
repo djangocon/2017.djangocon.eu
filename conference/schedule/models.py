@@ -90,6 +90,12 @@ class Slot(ModelMeta, models.Model):
         return slugify(self.title)
 
     @property
+    def twitter_split(self):
+        if self.twitter:
+            return self.twitter.split(',')
+        return ''
+
+    @property
     def abstract(self):
         if self.schedule_abstract:
             return self.schedule_abstract
@@ -97,6 +103,12 @@ class Slot(ModelMeta, models.Model):
             return self.talk.proposal_abstract
         elif self.workshop:
             return self.workshop.proposal_abstract
+        return ''
+
+    @property
+    def bio(self):
+        if self.talk.author_bio and len(self.talk.author_bio) > 3:
+            return self.talk.author_bio
         return ''
 
     @property
