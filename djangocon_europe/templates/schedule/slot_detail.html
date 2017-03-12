@@ -29,8 +29,8 @@
                     <div class=""><img src="{{ thumb.url }}" height="{{ thumb.height }}" width="{{ thumb.width }}" alt="{{ talk.author }}"></div>
                 {% endif %}
                 <div class="talk-detail__bio">
-                    {% if talk.twitter %}<a class="talk-detail__twitter" href="https://twitter.com/{{ talk.twitter }}">@{{ talk.twitter }}</a>{% endif %}
-                    {{ talk.talk.author_bio|linebreaksbr }}
+                    {% if talk.twitter_split %}{% for handle in talk.twitter_split %}<a class="talk-detail__twitter" href="https://twitter.com/{{ handle }}">@{{ handle }}</a>{% endfor %}{% endif %}
+                    <div class="talk-detail__bio--body">{{ talk.bio|linebreaksbr }}</div>
                 </div>
             </aside>
             <footer class="talk-detail__footer">

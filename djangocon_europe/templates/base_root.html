@@ -37,7 +37,7 @@
     <meta name="msapplication-square310x310logo" content="{% static 'img/favicon/largetile.png' %}" />
     <!-- end favicons -->
     <!--[if IE]><link rel="shortcut icon" href="{% static 'favicon.ico' %}"><![endif]-->
-    {% render_block "css" %}
+    {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
     <!--[if lt IE 9]>
     {% compress js %}
     <script src="{% static 'js/libs/html5shiv.min.js' %}"></script>
@@ -47,22 +47,32 @@
     {% block css_header %}{% endblock css_header %}
     {% block css %}{% endblock css %}
     {% with_data "css-all" as stylesheets %}
+    {% compress css inline %}
         {% for css in stylesheets %}<link href="{% static css %}" media="all" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% endcompress %}
     {% end_with_data %}
     {% with_data "css-screen" as stylesheets %}
+    {% compress css inline %}
         {% for css in stylesheets %}<link href="{% static css %}" media="screen, projection" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% endcompress %}
     {% end_with_data %}
     {% with_data "css-print" as stylesheets %}
+    {% compress css inline %}
         {% for css in stylesheets %}<link href="{% static css %}" media="print" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% endcompress %}
     {% end_with_data %}
     {% with_data "css-media" as stylesheets %}
+    {% compress css inline %}
         {% for css in stylesheets %}<link href="{{ MEDIA_URL }}{{ css }}" media="screen, projection" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% endcompress %}
     {% end_with_data %}
     {% with_data "css-ext" as stylesheets %}
         {% for css in stylesheets %}<link href="{{ css }}" rel="stylesheet" type="text/css"/>{% endfor %}
     {% end_with_data %}
     {% with_data "css-override" as stylesheets %}
+    {% compress css inline %}
         {% for css in stylesheets %}<link href="{% static css %}" media="screen, projection" rel="stylesheet" type="text/css"/>{% endfor %}
+    {% endcompress %}
     {% end_with_data %}
     {% render_block "css_end" %}
     <style media="all">
@@ -108,12 +118,16 @@ s0.parentNode.insertBefore(s1,s0);
     });
     {% render_block "script" %}
 </script>
-{% render_block "js" %}
+{% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
 {% with_data "js-script" as jsset %}
+{% compress js %}
     {% for js in jsset %}<script type="text/javascript" src="{% static js %}"></script>{% endfor %}
+{% endcompress %}
 {% end_with_data %}
 {% with_data "js-media" as jsset %}
+{% compress js %}
     {% for js in jsset %}<script type="text/javascript" src="{{ MEDIA_URL }}{{ js }}"></script>{% endfor %}
+{% endcompress %}
 {% end_with_data %}
 {% with_data "js-ext" as jsset %}
     {% for js in jsset %}<script type="text/javascript" src="{{ js }}"></script>{% endfor %}
