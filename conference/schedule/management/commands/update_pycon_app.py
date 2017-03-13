@@ -56,7 +56,7 @@ class SlotSerializer(object):
         endtime = cls.get_end_time(slot.start, slot.duration)
 
         return {
-            "active": True,
+            "active": False,
             "avatar": slot.get_image(),
             "bio": getattr(submission, "author_bio", ""),
             "description": slot.abstract,
