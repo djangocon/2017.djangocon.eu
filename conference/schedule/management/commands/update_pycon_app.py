@@ -44,6 +44,12 @@ class SlotSerializer(object):
         endtime = slot.end_time
         twitter = "@{}".format(slot.twitter) if slot.twitter else ""
 
+        avatar = slot.get_image() or ""
+        if avatar:
+            avatar = "https://2017.djangocon.eu{}".format(
+                avatar
+            )
+
         return {
             "active": False,
             "avatar": slot.get_image(),
