@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
+import datetime as dt
+
 from autoslug import AutoSlugField
 from autoslug.utils import slugify
 from django.core.exceptions import ValidationError
@@ -121,6 +123,12 @@ class Slot(ModelMeta, models.Model):
                 return '{}h {}min'.format(hours, minutes)
             return '{}h'.format(hours)
         return '{}min'.format(minutes)
+
+    @property
+    def end_time(self):
+        combined = dt.datetime.combine(dt.date.today(), self.start)
+        end_time = combined + self.duration
+        return end_time.time()
 
     @property
     def height(self):
