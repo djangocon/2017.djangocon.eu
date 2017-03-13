@@ -54,6 +54,7 @@ class SlotSerializer(object):
     def to_pycon_app(cls, slot):
         submission = slot.talk if slot.talk else slot.workshop
         endtime = cls.get_end_time(slot.start, slot.duration)
+        twitter = "@{}".format(slot.twitter) if slot.twitter else ""
 
         return {
             "active": False,
@@ -67,7 +68,7 @@ class SlotSerializer(object):
             "start_date": slot.day.strftime("%d.%m."),
             "start_time": slot.start.strftime("%H:%M"),
             "title": slot.title,
-            "twitter": slot.twitter,
+            "twitter": twitter,
             "type": cls.get_slot_type(slot),
             "votes": ["", ]
         }
