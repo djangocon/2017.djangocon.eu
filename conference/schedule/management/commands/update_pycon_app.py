@@ -33,16 +33,10 @@ class SlotSerializer(object):
 
     @classmethod
     def get_slot_type(cls, slot):
-        if slot.is_talk:
+        if slot.is_talk or slot.is_workshop:
             return "talk"
 
-        if slot.is_workshop:
-            return "workshop"
-
-        if slot.title in ("Coffee Break", "Lunch"):
-            return "break"
-
-        return "other"
+        return "event"
 
     @classmethod
     def to_pycon_app(cls, slot):
