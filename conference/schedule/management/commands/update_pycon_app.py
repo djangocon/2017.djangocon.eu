@@ -33,30 +33,25 @@ class SlotSerializer(object):
 
     @classmethod
     def get_slot_type(cls, slot):
-        if slot.is_talk:
+        if slot.is_talk or slot.is_workshop:
             return "talk"
 
-        if slot.is_workshop:
-            return "workshop"
-
-        if slot.title in ("Coffee Break", "Lunch"):
-            return "break"
-
-        return "other"
-
-    @classmethod
-    def get_end_time(cls, time, duration):
-        combined = dt.datetime.combine(dt.date.today(), time)
-        end_time = combined + dt.timedelta(hours=1)
-        return end_time.time()
+        return "event"
 
     @classmethod
     def to_pycon_app(cls, slot):
         submission = slot.talk if slot.talk else slot.workshop
-        endtime = cls.get_end_time(slot.start, slot.duration)
+        endtime = slot.end_time
+        twitter = "@{}".format(slot.twitter) if slot.twitter else ""
+
+        avatar = slot.get_image() or ""
+        if avatar:
+            avatar = "https://2017.djangocon.eu{}".format(
+                avatar
+            )
 
         return {
-            "active": True,
+            "active": False,
             "avatar": slot.get_image(),
             "bio": getattr(submission, "author_bio", ""),
             "description": slot.abstract,
@@ -67,7 +62,7 @@ class SlotSerializer(object):
             "start_date": slot.day.strftime("%d.%m."),
             "start_time": slot.start.strftime("%H:%M"),
             "title": slot.title,
-            "twitter": slot.twitter,
+            "twitter": twitter,
             "type": cls.get_slot_type(slot),
             "votes": ["", ]
         }
