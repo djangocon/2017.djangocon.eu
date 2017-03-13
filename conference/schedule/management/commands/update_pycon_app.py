@@ -45,15 +45,9 @@ class SlotSerializer(object):
         return "other"
 
     @classmethod
-    def get_end_time(cls, time, duration):
-        combined = dt.datetime.combine(dt.date.today(), time)
-        end_time = combined + dt.timedelta(hours=1)
-        return end_time.time()
-
-    @classmethod
     def to_pycon_app(cls, slot):
         submission = slot.talk if slot.talk else slot.workshop
-        endtime = cls.get_end_time(slot.start, slot.duration)
+        endtime = slot.end_time
         twitter = "@{}".format(slot.twitter) if slot.twitter else ""
 
         return {
