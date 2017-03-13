@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
-import datetime as dt
+
 import requests
 from django.core.management.base import BaseCommand
-from conference.schedule.models import Slot
 
+from conference.schedule.models import Slot
 
 DATABASE_NAME = "djangocon_eu2017"
 
