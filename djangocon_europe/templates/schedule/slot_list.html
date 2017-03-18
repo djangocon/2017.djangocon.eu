@@ -24,6 +24,10 @@
                 </section>
             {% endfor %}
             {% if workshops.exists %}
+    </div>
+</div>
+<div class="widget-section section-film-strip bg-yellow schedule">
+    <div class="grid">
                 <h1>{% trans "Workshops" %}</h1>
                 {% static_placeholder "sprints" %}
                 {% regroup workshops by day as workshops_list %}

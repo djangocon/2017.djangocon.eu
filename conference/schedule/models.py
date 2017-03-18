@@ -109,8 +109,10 @@ class Slot(ModelMeta, models.Model):
 
     @property
     def bio(self):
-        if self.talk.author_bio and len(self.talk.author_bio) > 3:
+        if self.is_talk() and self.talk.author_bio and len(self.talk.author_bio) > 3:
             return self.talk.author_bio
+        if self.is_workshop() and self.workshop.author_bio and len(self.workshop.author_bio) > 3:
+            return self.workshop.author_bio
         return ''
 
     @property
@@ -118,7 +120,7 @@ class Slot(ModelMeta, models.Model):
         minutes = self.duration.seconds//60
         hours = minutes//60
         if hours:
-            minutes = minutes - (hours * 60)
+            minutes -= hours * 60
             if minutes:
                 return '{}h {}min'.format(hours, minutes)
             return '{}h'.format(hours)
