@@ -20,8 +20,9 @@ class SlotResource(resources.ModelResource):
 
 @admin.register(Slot)
 class SlotAdmin(ExportActionModelAdmin):
-    list_display = ('title', 'day', 'start', 'parsed_duration', 'is_talk', 'is_workshop', 'is_custom')
+    list_display = ('title', 'day', 'start', 'parsed_duration', 'is_talk', 'is_workshop', 'is_custom', 'sprint_days')
     search_fields = ('talk__author', 'talk__proposal_title', 'workshop__author', 'workshop__proposal_title')
     resource_class = SlotResource
     readonly_fields = ('slug',)
     date_hierarchy = 'day'
+    list_filter = ('sprint_days',)
