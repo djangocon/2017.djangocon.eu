@@ -20,24 +20,37 @@ h1 + .schedule-day {
 }
 
 .talk__info {
-    margin-left: 10vh;
-    padding-left: 2vh;
-    border-left: $schedule-border solid $djangcon-yellow;
     display: table;
     overflow: hidden;
-    background: rgba($djangcon-yellow, .1);
-    width: calc(100% - 10vh);
+    padding-left: 12vh;
+    width: 100%;
+
+    .talk__meta {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        padding-left: 2vh;
+        border-left: $schedule-border solid $djangcon-yellow;
+        background: rgba($djangcon-yellow, .1);
+    }
+
+    .talk__time-end {
+        display: table-cell;
+        vertical-align: bottom;
+        min-width: 12vh;
+    }
 
     &.talk__custom {
-        border-left: $schedule-border solid $purple-l-1;
-        background: rgba($purple-l-1, .1);
+        .talk__meta {
+            border-left: $schedule-border solid $purple-l-1;
+            background: rgba($purple-l-1, .1);
+        }
     }
-}
 
-.talk__meta {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
+    &.talk__show-end-time {
+        margin-bottom: $gutter-double;
+        padding-left: 0;
+    }
 }
 
 .talk__title {

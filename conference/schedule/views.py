@@ -12,8 +12,8 @@ class SlotList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(SlotList, self).get_context_data(**kwargs)
-        context['talks'] = super(SlotList, self).get_queryset().filter(workshop__isnull=True)
-        context['workshops'] = super(SlotList, self).get_queryset().filter(workshop__isnull=False)
+        context['talks'] = super(SlotList, self).get_queryset().filter(sprint_days=False)
+        context['workshops'] = super(SlotList, self).get_queryset().filter(sprint_days=True)
         return context
 
 

@@ -1,7 +1,8 @@
 
 <article class="talk">
     <span class="talk__time">{{ talk.start|date:"g:i a" }}</span>
-    <span class="talk__info{% if talk.is_talk %} talk__talk{% endif %}{% if talk.is_custom %} talk__custom{% endif %}{% if talk.is_workshop %} talk__workshop{% endif %}" style="{% if talk.is_talk %}min-height: {{ talk.height }}px{% else %}min-height: 120px{% endif %}">
+    <span class="talk__info{% if talk.is_talk %} talk__talk{% endif %}{% if talk.show_end_time or talk.sprint_days %} talk__show-end-time{% endif %}{% if talk.is_custom %} talk__custom{% endif %}{% if talk.is_workshop %} talk__workshop{% endif %}" style="{% if talk.is_talk %}min-height: {{ talk.height }}px{% else %}min-height: 120px{% endif %}">
+        {% if talk.show_end_time or talk.sprint_days %}<span class="talk__time-end">{{ talk.end_time|date:"g:i a" }}</span>{% endif %}
         <span class="talk__meta">
             {% if not talk.is_custom and talk.slug %}
                 <a href="{% url 'talk-detail' slug=talk.slug %}" class="talk__title">{{ talk.title }}</a>
