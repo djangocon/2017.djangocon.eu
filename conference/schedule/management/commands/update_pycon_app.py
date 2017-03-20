@@ -33,7 +33,7 @@ class SlotSerializer(object):
 
     @classmethod
     def get_slot_type(cls, slot):
-        if slot.is_talk or slot.is_workshop:
+        if slot.is_talk() or slot.is_workshop():
             return "talk"
 
         return "event"
@@ -51,8 +51,8 @@ class SlotSerializer(object):
             )
 
         return {
-            "active": False,
-            "avatar": slot.get_image(),
+            "active": True,
+            "avatar": avatar,
             "bio": getattr(submission, "author_bio", ""),
             "description": slot.abstract,
             "end_date": slot.day.strftime("%d.%m."),
