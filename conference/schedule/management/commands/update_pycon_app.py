@@ -51,7 +51,7 @@ class SlotSerializer(object):
             )
 
         return {
-            "active": False,
+            "active": True,
             "avatar": slot.get_image(),
             "bio": getattr(submission, "author_bio", ""),
             "description": slot.abstract,
