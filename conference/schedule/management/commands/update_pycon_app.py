@@ -52,7 +52,7 @@ class SlotSerializer(object):
 
         return {
             "active": True,
-            "avatar": slot.get_image(),
+            "avatar": avatar,
             "bio": getattr(submission, "author_bio", ""),
             "description": slot.abstract,
             "end_date": slot.day.strftime("%d.%m."),
