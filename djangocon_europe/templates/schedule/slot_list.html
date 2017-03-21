@@ -35,7 +35,7 @@
                 {% for day in workshops_list %}
                     <section class="schedule-day">
                     {% if forloop.counter0 > 0 %}<hr>{% endif %}
-                        <h2>{{ day.grouper }} @ <a href="{{ sprint_venue_url }}">XXXX</a></h2>
+                        <h2>{{ day.grouper }} @ <a href="{{ sprint_venue_url }}">Educatorio del Fuligno</a></h2>
                         {% for talk in day.list %}
                             {% include "schedule/includes/slot_fragment.html" %}
                         {% endfor %}
