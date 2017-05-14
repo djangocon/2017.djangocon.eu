@@ -41,6 +41,8 @@ class Slot(ModelMeta, models.Model):
     duration = models.DurationField(_('Duration'))
     sprint_days = models.BooleanField(_('Part of sprint days'), default=False)
     show_end_time = models.BooleanField(_('Show end time in schedule'), default=False)
+    slides = models.URLField(_('Speaker slides'), blank=True, null=True)
+    video = models.URLField(_('Talk video'), blank=True, null=True)
 
     _metadata = {
         'title': 'title',

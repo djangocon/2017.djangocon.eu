@@ -21,6 +21,10 @@
                 <div class="talk-detail__abstract">
                     {{ talk.abstract|linebreaksbr }}
                 </div>
+                <h4 class="talk-detail__extra">
+                    {% if talk.slides %}<a href="{{ talk.slides }}" target="_blank"><i>📊</i> {% trans "slides" %}</a>{% endif %}
+                    {% if talk.video %}<a href="{{ talk.video }}" target="_blank"><i>📺</i> {% trans "video" %}</a>{% endif %}
+                </h4>
             </div>
             <aside class="talk-detail__author">
                 <h2 class="">{{ talk.author }}</h2>

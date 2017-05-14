@@ -89,6 +89,22 @@ h1 + .schedule-day {
     }
 }
 
+.talk-detail__extra {
+    margin-top: $gutter;
+    text-align: right;
+
+    a {
+        display: inline-block;
+        padding: 0 $gutter-double;
+    }
+    i {
+        display: inline-block;
+        font-style: normal;
+        font-size: 120%;
+        line-height: 0.7;
+    }
+}
+
 .talk-detail__author {
     order: 2;
     flex: 1 calc(35% - #{$gutter * 2.5});
